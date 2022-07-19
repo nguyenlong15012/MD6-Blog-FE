@@ -8,12 +8,14 @@ import { LoginComponent } from './form-login/login/login.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { NhaComponent } from './nha/nha.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
+    NhaComponent,
 
   ],
   imports: [

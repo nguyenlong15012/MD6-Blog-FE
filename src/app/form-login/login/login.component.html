@@ -14,11 +14,11 @@
                   <h4 class="mt-1 mb-5 pb-1">We are The LLMT team</h4>
                 </div>
 
-                <form [formGroup]="loginForm" (ngSubmit)="Submit()" novalidate>
+                <form [formGroup]="loginForm" (ngSubmit)="ngSubmit()" novalidate>
                   <p>Please login to your account</p>
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form2Example11">Username</label>
-                    <input type="email" id="form2Example11" class="form-control"
+                    <input type="email" [(ngModel)]="form.username" id="form2Example11" class="form-control"
                            placeholder="" formControlName="username"/>
                     <div *ngIf="!username?.valid && username?.touched">
                       <div [hidden]="!username?.errors?.['required']">
@@ -30,7 +30,7 @@
 
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form2Example22">Password</label>
-                    <input type="password" id="form2Example22" class="form-control" />
+                    <input type="password" [(ngModel)]="form.password" id="form2Example22" class="form-control" formControlName="password" />
 
                     <div *ngIf="!password?.valid && password?.touched">
                       <div [hidden]="!password?.errors?.['required']">
@@ -46,8 +46,7 @@
                   </div>
 
                   <div class="text-center pt-1 mb-5 pb-1">
-                    <button [disabled]="!loginForm.valid" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button">Log
-                      in</button>
+                    <button [disabled]="!loginForm.valid" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3">Log in</button>
                     <a class="text-muted" href="#!">Forgot password?</a>
                   </div>
 

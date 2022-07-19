@@ -1,0 +1,42 @@
+
+<section id="hero" class="d-flex justify-content-center align-items-center">
+  <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+    <h1>Chào mừng bạn đến với BLOG K<br>của chúng tôi</h1>
+    <h2>Hãy chia sẻ những điều thú vị</h2>
+    <a routerLink="create" class="btn-get-started">BẮT ĐẦU</a>
+  </div>
+</section><!-- End Hero -->
+
+<main id="main">
+
+  <!-- ======= Breadcrumbs ======= -->
+  <div class="breadcrumbs" data-aos="fade-in">
+    <div class="container">
+      <h2>Trang Chủ</h2>
+      <p>Vết thương không lành theo cách chúng ta muốn, chúng lành theo cách chúng cần. Cần có thời gian để vết thương mờ dần thành sẹo. Cần có thời gian để quá trình chữa bệnh diễn ra. Hãy cho bản thân thời gian đó. Hãy nhẹ nhàng với vết thương của bạn. Hãy nhẹ nhàng với trái tim của bạn. Bạn xứng đáng được chữa lành</p>
+    </div>
+  </div><!-- End Breadcrumbs -->
+
+  <!-- ======= Events Section ======= -->
+  <section id="events" class="events" >
+    <div class="container" data-aos="fade-up">
+
+      <div class="row" >
+        <div class="col-md-6 d-flex align-items-stretch"  *ngFor = "let item of list">
+          <div class="card" >
+            <div class="card-img">
+              <img src="/assets/img/events-1.jpg" alt="...">
+            </div>
+            <a  class="card-body" routerLink="list-post/{{item.idPost}}">
+              <h5  class="card-title">{{item.title}}</h5>
+              <p class="fst-italic text-center">{{item.createAt}}</p>
+              <p class="card-text">{{item.description}}</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Events Section -->
+
+</main><!-- End #main -->
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

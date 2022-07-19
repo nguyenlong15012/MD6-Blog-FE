@@ -9,6 +9,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { NhaComponent } from './nha/nha.component';
+import { CreatePostComponent } from './post/create-post/create-post.component';
+import { ShowListPostComponent } from './post/show-list-post/show-list-post.component';
+import { HomeComponent } from './post/home/home.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +20,18 @@ import { NhaComponent } from './nha/nha.component';
     LoginComponent,
     NhaComponent,
 
+    AppComponent,
+    CreatePostComponent,
+    ShowListPostComponent,
+    HomeComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
-    HttpClientModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

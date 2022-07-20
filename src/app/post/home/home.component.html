@@ -27,8 +27,9 @@
             <div class="card-img">
               <img src="/assets/img/events-1.jpg" alt="...">
             </div>
-            <a  class="card-body" routerLink="/list-post/{{item.idPost}}">
-              <h5  class="card-title">{{item.title}}</h5>
+            <a  class="card-body" >
+              <p routerLink="/friend-page">{{item.user.name}}</p>
+              <h5  class="card-title" routerLink="/list-post/{{item.idPost}}">{{item.title}}</h5>
               <p class="fst-italic text-center">{{item.createAt}}</p>
               <p class="card-text">{{item.description}}</p>
             </a>

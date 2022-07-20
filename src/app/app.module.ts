@@ -8,22 +8,22 @@ import { LoginComponent } from './form-login/login/login.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { NhaComponent } from './nha/nha.component';
 import { CreatePostComponent } from './post/create-post/create-post.component';
 import { ShowListPostComponent } from './post/show-list-post/show-list-post.component';
 import { HomeComponent } from './post/home/home.component';
+import { MypageComponent } from './mypage/mypage.component';
+import { FriendPageComponent } from './friend-page/friend-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    NhaComponent,
-
-    AppComponent,
     CreatePostComponent,
     ShowListPostComponent,
-    HomeComponent
+    HomeComponent,
+    MypageComponent,
+    FriendPageComponent
   ],
   imports: [
     FormsModule,

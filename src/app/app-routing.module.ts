@@ -7,15 +7,17 @@ import {LoginComponent} from "./form-login/login/login.component";
 import {RegisterComponent} from "./form-login/register/register.component";
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent, data: { title: "Login"}},
-  { path: 'register', component: RegisterComponent, data: { title: "Register"}},
-  {path: "home",component:HomeComponent},
-  {path: "list-post/:id", component: ShowListPostComponent},
+  {path: 'login', component: LoginComponent, data: {title: "Login"}},
+  {path: 'register', component: RegisterComponent, data: {title: "Register"}},
+  {path: "", component: HomeComponent},
   {path: "create", component: CreatePostComponent},
+  {path: "list-post/:id", component: ShowListPostComponent}
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

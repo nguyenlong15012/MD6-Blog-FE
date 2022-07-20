@@ -11,8 +11,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { CreatePostComponent } from './post/create-post/create-post.component';
 import { ShowListPostComponent } from './post/show-list-post/show-list-post.component';
 import { HomeComponent } from './post/home/home.component';
-import { MypageComponent } from './mypage/mypage.component';
-import { FriendPageComponent } from './friend-page/friend-page.component';
+import { HeaderComponent } from './post/header/header.component';
+import { FooterComponent } from './post/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +22,8 @@ import { FriendPageComponent } from './friend-page/friend-page.component';
     CreatePostComponent,
     ShowListPostComponent,
     HomeComponent,
-    MypageComponent,
-    FriendPageComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     FormsModule,

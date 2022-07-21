@@ -3,7 +3,7 @@ const TOKEN_KEY = 'Token_Key';
 const NAME_KEY = 'Name_Key';
 const ROLE_KEY = 'Role_Key';
 const ID_KEY = 'Id_Key';
-// const AVATAR_KEY = 'Avatar_Key';
+const AVATAR_KEY = 'Avatar_Key';
 
 @Injectable({
   providedIn: 'root'
@@ -38,13 +38,14 @@ export class TokenService {
     // @ts-ignore
     return window.sessionStorage.getItem(NAME_KEY);
   }
-  // public getAvatar(): string{
-  //   return window.sessionStorage.getItem(AVATAR_KEY);
-  // }
-  // public setAvatar(avatar: string){
-  //   window.sessionStorage.removeItem(AVATAR_KEY);
-  //   window.sessionStorage.setItem(AVATAR_KEY, avatar);
-  // }
+  public getAvatar(): string{
+    // @ts-ignore
+    return window.sessionStorage.getItem(AVATAR_KEY);
+  }
+  public setAvatar(avatar: string){
+    window.sessionStorage.removeItem(AVATAR_KEY);
+    window.sessionStorage.setItem(AVATAR_KEY, avatar);
+  }
   public setRole(roles: string[]){
     window.sessionStorage.removeItem(ROLE_KEY);
     // @ts-ignore

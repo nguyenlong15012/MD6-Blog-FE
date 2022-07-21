@@ -20,8 +20,8 @@
               <img src="/assets/img/events-1.jpg" alt="...">
             </div>
             <a  class="card-body" >
-              <img (click)="deletePost(item.idPost)" style="float: right; width: 20px;height: 20px" src="https://img.icons8.com/material-sharp/2x/filled-trash.png">
-              <p routerLink="/friend-page">{{item.user.name}}</p>
+              <img data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="showConfirm(item.idPost)" style="float: right; width: 20px;height: 20px" src="https://img.icons8.com/material-sharp/2x/filled-trash.png">
+              <p>{{item.user.name}}</p>
               <h5  class="card-title" routerLink="/list-post/{{item.idPost}}">{{item.title}}</h5>
               <p class="fst-italic text-center">{{item.createAt}}</p>
               <p class="card-text">{{item.description}}</p>
@@ -36,21 +36,22 @@
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 <app-footer></app-footer>
 
-<div class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <div class="modal-header" style="background-color: #dc3545; color: white">
+        <h5 class="modal-title" id="exampleModalLabel">Delete confirm</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <input type="hidden" [(ngModel)]="idDelete">
       </div>
       <div class="modal-body">
-        <p>Modal body text goes here.</p>
+        Bạn có thực sự muốn xóa bài Blog này không?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button (click)="deletePost(idDelete)" class="btn btn-primary" data-bs-dismiss="modal">Delete</button>
       </div>
     </div>
   </div>

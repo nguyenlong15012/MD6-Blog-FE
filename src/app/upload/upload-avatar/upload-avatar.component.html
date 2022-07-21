@@ -1,0 +1,9 @@
+<div>
+  <input type="file" (change)="onFileChanged($event)"><br>
+  <button *ngIf="checkUploadAvatar"></button>
+  <button style="width: 120px" mat-stroked-button color="accent" class=""
+          (click)="onUpload()">Upload Avatar</button>
+  <div *ngIf="downloadURL" style="margin-bottom: 10px; margin-top: 10px">
+    <img [src]="downloadURL" style="width: 300px; height: auto">
+  </div>
+</div>

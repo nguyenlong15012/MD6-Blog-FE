@@ -24,9 +24,9 @@
             </div>
             <a  class="card-body">
               <div class="row">
-                <div class="col-2"> <img (click)="getTimeLine(item.user.id)" style="height: 30px;width: 30px" src="{{item.user.avatar}}">
+                <div class="col-1"> <img (click)="getTimeLine(item.user.id)" style="height: 25px;width: 25px" src="{{item.user.avatar}}">
                 </div>
-                <div class="col-10"> <p (click)="getTimeLine(item.user.id)">{{item.user.name}}</p>
+                <div class="col-10"> <h5 (click)="getTimeLine(item.user.id)">{{item.user.name}}</h5>
                 </div>
               </div>
               <h5  class="card-title" routerLink="/list-post/{{item.idPost}}">{{item.title}}</h5>

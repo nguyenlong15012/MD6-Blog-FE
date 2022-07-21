@@ -23,7 +23,12 @@
               <img src="/assets/img/events-1.jpg" alt="...">
             </div>
             <a  class="card-body">
-              <p (click)="getTimeLine(item.user.id)">{{item.user.name}}</p>
+              <div class="row">
+                <div class="col-2"> <img (click)="getTimeLine(item.user.id)" style="height: 30px;width: 30px" src="{{item.user.avatar}}">
+                </div>
+                <div class="col-10"> <p (click)="getTimeLine(item.user.id)">{{item.user.name}}</p>
+                </div>
+              </div>
               <h5  class="card-title" routerLink="/list-post/{{item.idPost}}">{{item.title}}</h5>
               <p class="fst-italic text-center">{{item.createAt}}</p>
               <p class="card-text">{{item.description}}</p>

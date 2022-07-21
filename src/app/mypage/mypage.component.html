@@ -44,13 +44,14 @@
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Delete confirm</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <input type="hidden" id="id" [(ngModel)]="idDelete">
       </div>
       <div class="modal-body">
         Bạn có thực sự muốn xóa bài Blog này không?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Delete</button>
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button (click)="deletePost(idDelete)" class="btn btn-primary" data-bs-dismiss="modal">Delete</button>
       </div>
     </div>
   </div>

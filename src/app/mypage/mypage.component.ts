@@ -13,7 +13,7 @@ export class MypageComponent implements OnInit {
 //@ts-ignore
   name: string;
   list: any;
-
+  idDelete: any;
   constructor(private httpClient: HttpClient,
               private userService: UserService,
               private tokenService: TokenService,
@@ -35,12 +35,15 @@ export class MypageComponent implements OnInit {
   }
 
   deletePost(id: any) {
+    // @ts-ignore
+    console.log(document.getElementById('id').value)
     this.postService.delete(id).subscribe(data =>{
         this.getAllPostByUser(this.tokenService.getId())
     })
   }
 
   showConfirm(id: any){
+    this.idDelete = id
     // @ts-ignore
     $('#exampleModal').modal('show');
   }

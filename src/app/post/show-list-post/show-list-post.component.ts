@@ -40,4 +40,10 @@ export class ShowListPostComponent implements OnInit {
       this.post = yy;
     })
   }
+
+  // deletePost(id: any){
+  //   this.postService.delete(id).subscribe(data =>{
+  //     console.log(data)
+  //   })
+  // }
 }

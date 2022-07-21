@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 const TOKEN_KEY = 'Token_Key';
 const NAME_KEY = 'Name_Key';
 const ROLE_KEY = 'Role_Key';
+const ID_KEY = 'Id_Key';
 // const AVATAR_KEY = 'Avatar_Key';
 
 @Injectable({
@@ -18,6 +19,15 @@ export class TokenService {
   public getToken(): string{
     // @ts-ignore
     return window.sessionStorage.getItem(TOKEN_KEY);
+  }
+
+  public getId(): any{
+    return window.sessionStorage.getItem(ID_KEY);
+  }
+
+  public setId(id: any){
+    window.sessionStorage.removeItem(ID_KEY);
+    window.sessionStorage.setItem(ID_KEY, id);
   }
 
   public setName(name: string){

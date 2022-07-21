@@ -12,7 +12,6 @@ import {UserService} from "../../service/user.service";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
   list: any;
   searchForm = new FormGroup({
     name: new FormControl('')
@@ -38,7 +37,7 @@ export class HomeComponent implements OnInit {
     if (id == this.tokenService.getId()) {
       this.router.navigate(['/my-page'])
     } else {
-      this.router.navigate(['/friend-page'])
+      this.router.navigate(['/friend-page/'+id]);
     }
   }
 

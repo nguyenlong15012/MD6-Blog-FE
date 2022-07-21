@@ -19,9 +19,9 @@
             <div class="card-img">
               <img src="/assets/img/events-1.jpg" alt="...">
             </div>
-            <a  class="card-body" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              <img (click)="showConfirm(item.idPost)" style="float: right; width: 20px;height: 20px" src="https://img.icons8.com/material-sharp/2x/filled-trash.png">
-              <p routerLink="/friend-page">{{item.user.name}}</p>
+            <a  class="card-body" >
+              <img data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="showConfirm(item.idPost)" style="float: right; width: 20px;height: 20px" src="https://img.icons8.com/material-sharp/2x/filled-trash.png">
+              <p>{{item.user.name}}</p>
               <h5  class="card-title" routerLink="/list-post/{{item.idPost}}">{{item.title}}</h5>
               <p class="fst-italic text-center">{{item.createAt}}</p>
               <p class="card-text">{{item.description}}</p>
@@ -41,10 +41,10 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header" style="background-color: #dc3545; color: white">
         <h5 class="modal-title" id="exampleModalLabel">Delete confirm</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        <input type="hidden" id="id" [(ngModel)]="idDelete">
+        <input type="hidden" [(ngModel)]="idDelete">
       </div>
       <div class="modal-body">
         Bạn có thực sự muốn xóa bài Blog này không?

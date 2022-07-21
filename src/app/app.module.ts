@@ -27,7 +27,7 @@ import {FriendPageComponent} from "./friend-page/friend-page.component";
     HeaderComponent,
     FooterComponent,
     MypageComponent,
-    FriendPageComponent
+    FriendPageComponent,
   ],
   imports: [
     FormsModule,

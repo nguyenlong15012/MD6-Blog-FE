@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: "create", component: CreatePostComponent},
   {path: "list-post/:id", component: ShowListPostComponent},
   {path: "my-page", component: MypageComponent},
-  {path: "friend-page", component: FriendPageComponent},
+  {path: "friend-page/:id", component: FriendPageComponent},
 
 ];
 

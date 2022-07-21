@@ -35,8 +35,6 @@ export class MypageComponent implements OnInit {
   }
 
   deletePost(id: any) {
-    // @ts-ignore
-    console.log(document.getElementById('id').value)
     this.postService.delete(id).subscribe(data =>{
         this.getAllPostByUser(this.tokenService.getId())
     })

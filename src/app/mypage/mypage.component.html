@@ -1,1 +1,57 @@
-<p>trang cá nhân</p>
+<app-header></app-header>
+<section id="hero" class="d-flex justify-content-center align-items-center">
+  <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+    <h1>Chào mừng bạn đến với BLOG của {{name}}</h1>
+    <h2>Hãy chia sẻ những điều thú vị</h2>
+    <a routerLink="create" class="btn-get-started">BẮT ĐẦU</a>
+  </div>
+</section><!-- End Hero -->
+
+<main id="main">
+
+  <!-- ======= Events Section ======= -->
+  <section id="events" class="events" >
+    <div class="container" data-aos="fade-up">
+
+      <div class="row" >
+        <div class="col-md-6 d-flex align-items-stretch"  *ngFor = "let item of list">
+          <div class="card" >
+            <div class="card-img">
+              <img src="/assets/img/events-1.jpg" alt="...">
+            </div>
+            <a  class="card-body" >
+              <img (click)="deletePost(item.idPost)" style="float: right; width: 20px;height: 20px" src="https://img.icons8.com/material-sharp/2x/filled-trash.png">
+              <p routerLink="/friend-page">{{item.user.name}}</p>
+              <h5  class="card-title" routerLink="/list-post/{{item.idPost}}">{{item.title}}</h5>
+              <p class="fst-italic text-center">{{item.createAt}}</p>
+              <p class="card-text">{{item.description}}</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Events Section -->
+
+</main><!-- End #main -->
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<app-footer></app-footer>
+
+<div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

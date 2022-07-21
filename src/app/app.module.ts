@@ -13,6 +13,8 @@ import { ShowListPostComponent } from './post/show-list-post/show-list-post.comp
 import { HomeComponent } from './post/home/home.component';
 import { HeaderComponent } from './post/header/header.component';
 import { FooterComponent } from './post/footer/footer.component';
+import {MypageComponent} from "./mypage/mypage.component";
+import {FriendPageComponent} from "./friend-page/friend-page.component";
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { FooterComponent } from './post/footer/footer.component';
     ShowListPostComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MypageComponent,
+    FriendPageComponent
   ],
   imports: [
     FormsModule,

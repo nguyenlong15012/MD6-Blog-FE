@@ -1,7 +1,7 @@
 <app-header></app-header>
 <section id="hero" class="d-flex justify-content-center align-items-center">
   <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-    <h1>Chào mừng bạn đến với BLOG K<br>của chúng tôi</h1>
+    <h1>Chào mừng bạn đến với BLOG K</h1>
     <h2>Hãy chia sẻ những điều thú vị</h2>
     <a routerLink="create" class="btn-get-started">BẮT ĐẦU</a>
   </div>
@@ -28,7 +28,7 @@
               <img src="/assets/img/events-1.jpg" alt="...">
             </div>
             <a  class="card-body" >
-              <p routerLink="/friend-page">{{item.user.name}}</p>
+              <p (click)="getTimeLine(item.user.id)">{{item.user.name}}</p>
               <h5  class="card-title" routerLink="/list-post/{{item.idPost}}">{{item.title}}</h5>
               <p class="fst-italic text-center">{{item.createAt}}</p>
               <p class="card-text">{{item.description}}</p>

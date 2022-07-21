@@ -5,7 +5,7 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class UserService {
-  API_URL='http://localhost:8081/user'
+  API_URL='http://localhost:8081/users'
   constructor(private httpClient: HttpClient) { }
 
   getAllPostByUser(id: any){

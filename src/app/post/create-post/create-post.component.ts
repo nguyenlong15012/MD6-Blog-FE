@@ -13,6 +13,8 @@ import {User} from "../../model/User";
 })
 export class CreatePostComponent implements OnInit {
 
+  congkhai = 'Mọi người';
+
   //@ts-ignore
   name: string;
   user:User={};

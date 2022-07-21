@@ -15,6 +15,7 @@ import { HeaderComponent } from './post/header/header.component';
 import { FooterComponent } from './post/footer/footer.component';
 import {MypageComponent} from "./mypage/mypage.component";
 import {FriendPageComponent} from "./friend-page/friend-page.component";
+import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {FriendPageComponent} from "./friend-page/friend-page.component";
     FooterComponent,
     MypageComponent,
     FriendPageComponent,
+
   ],
   imports: [
     FormsModule,
@@ -35,9 +37,10 @@ import {FriendPageComponent} from "./friend-page/friend-page.component";
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    EditorModule
   ],
-  providers: [],
+  providers: [ { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

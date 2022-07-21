@@ -1,1 +1,47 @@
-<h2>hahaha</h2>
+<app-header></app-header>
+<div class="breadcrumbs" data-aos="fade-in">
+  <div class="container">
+    <h2>Tạo Blog để chia sẻ tới mọi người</h2>
+    <p>Nếu chỉ đọc những cuốn sách người khác đã đọc, bạn sẽ chỉ biết những điều người khác đã biết</p>
+  </div>
+</div>
+<form [formGroup]="form" (submit)="add()">
+  <p></p>
+  <h4>Tiêu đề :</h4>
+  <input  formControlName = "title" placeholder="Tiêu đề                                                                                                                                                                                                                              0/255" class="input1">
+  <input type="hidden" formControlName="createAt">
+  <input type="hidden" formControlName="user">
+  <h4>Mô Tả :</h4>
+  <input formControlName="description" placeholder="Mô tả                                                                                                                                                                                                                                 0/255" class="input1">
+  <h4>Nhãn :</h4>
+  <input placeholder="Nhãn                                                                                                                                                                                                                                   0/255" class="input1">
+<div><br></div>
+  <h4> Đối tượng :
+    <select style="margin-left: 20px" formControlName="status" [(ngModel)]="congkhai">
+      <option >Chỉ mình tôi</option>
+      <option >Mọi người</option>
+    </select>
+  </h4>
+
+  <h4> Nội Dung :</h4>
+  <editor formControlName="content"
+    apiKey="k9pc292uhtpgv34lb0sfldd12z1tp9sksyzskpoqejysd38a"
+
+    [init]="{
+    base_url: '/tinymce',
+    suffix: '.min',
+     height: 500,
+     menubar: false,
+     plugins: [
+       'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+       'searchreplace wordcount visualblocks visualchars code fullscreen',
+       'insertdatetime media nonbreaking save table contextmenu directionality',
+       'emoticons template paste textcolor colorpicker textpattern'
+     ],
+     toolbar: 'undo redo | formatselect | bold italic backcolor |lignleft aligncenter alignright alignjustify|ullist numlist outdent indent | removeformat |cut|paste|copy| help'
+   }"
+  >
+  </editor>
+  <button class="button button1">Đăng</button>
+</form>
+<app-footer></app-footer>

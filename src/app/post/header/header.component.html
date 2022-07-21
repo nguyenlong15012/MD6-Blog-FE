@@ -2,11 +2,11 @@
 <header id="header" class="fixed-top">
   <div class="container d-flex align-items-center">
 
-    <h1 class="logo me-auto"><a href="index.html">BLOG K</a></h1>
+    <h1 class="logo me-auto"><a routerLink="">BLOG K</a></h1>
     <nav id="navbar" class="navbar order-last order-lg-0">
       <ul>
         <li><a class="active" routerLink="">Home</a></li>
-        <li><a routerLink="listPost">About</a></li>
+        <li><a *ngIf="checkLogin" routerLink="/create">About</a></li>
         <li class="dropdown" *ngIf="!checkLogin"><a><span>Đăng nhập</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
             <li><a *ngIf="!checkLogin" routerLink="/login">Đăng Nhập</a></li>
@@ -15,7 +15,7 @@
         </li>
 
       </ul>
-<!--      <i class="bi bi-list mobile-nav-toggle"></i>-->
+      <!--      <i class="bi bi-list mobile-nav-toggle"></i>-->
       <form style="margin-left: 20px" class="form-inline d-flex justify-content-center md-form form-sm mt-0">
         <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
                aria-label="Search">
@@ -24,8 +24,8 @@
       </form>
 
     </nav><!-- .navbar -->
-        <a *ngIf="checkLogin" routerLink="/my-page" class="get-started-btn">{{name}}</a>
-        <a *ngIf="checkLogin" (click)="logOut()" class="get-started-btn">Đăng xuất</a>
+    <a *ngIf="checkLogin" routerLink="/my-page" class="get-started-btn">{{name}}</a>
+    <a *ngIf="checkLogin" (click)="logOut()" class="get-started-btn">Đăng xuất</a>
   </div>
 </header>
 <!-- End Header -->

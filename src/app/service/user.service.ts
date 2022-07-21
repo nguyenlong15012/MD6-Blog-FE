@@ -11,4 +11,7 @@ export class UserService {
   getAllPostByUser(id: any){
     return this.httpClient.get(this.API_URL + `/view/${id}`);
   }
+  getAll(){
+    return this.httpClient.get(this.API_URL);
+  }
 }

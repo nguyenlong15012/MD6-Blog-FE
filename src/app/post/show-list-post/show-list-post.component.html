@@ -10,15 +10,18 @@
   <!-- ======= About Section ======= -->
   <section id="about" class="about">
     <div class="container" data-aos="fade-up">
+
       <div class="row">
-        <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-          <img src="/assets/img/about.jpg" class="img-fluid" alt="">
-        </div>
-        <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+<!--        <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">-->
+<!--          <img src="/assets/img/about.jpg" class="img-fluid" alt="">-->
+<!--        </div>-->
+<!--        <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">-->
 <!--          <img (click)="deletePost(post.idPost)" style="float: right; width: 20px;height: 20px" src="https://img.icons8.com/material-sharp/2x/filled-trash.png">-->
           <h2>{{post.title}}</h2>
           <p><i class="bi bi-alarm-fill"></i> Thời gian : {{post.createAt}}</p>
           <p><i class="bi bi-pencil-fill"></i> Mô tả : {{post.description}}</p>
+        <img style="margin-left: 100px;height: 550px;width: 900px" src="assets/img/about.jpg">
+        <div [innerHTML]="post.content" ></div>
           <p>{{post.content}}</p>
           <div class="small d-flex justify-content-start">
             <div style="width: 180px;height: 30px ;text-align: center;margin-top: 10px">
@@ -50,7 +53,7 @@
           </div>
         </div>
       </div>
-    </div>
+<!--    </div>-->
   </section><!-- End About Section -->
 
 </main><!-- End #main -->

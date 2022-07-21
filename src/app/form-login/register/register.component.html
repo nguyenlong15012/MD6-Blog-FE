@@ -14,7 +14,6 @@
                 <div class="form-outline mb-4">
                   <label class="form-label" for="form3Example1cg">Your Name</label>
                   <input type="text" name="name" [(ngModel)]="form.name" id="form3Example1cg" class="form-control form-control-lg" formControlName="name"/>
-
                   <div *ngIf="!name?.valid && name?.touched">
                     <div [hidden]="!name?.errors?.['required']">
                       <p style="color: red">Name is not required</p>

@@ -26,8 +26,8 @@ export class PostService {
 
   }
 
-  update(product: any, id: any): Observable<Post> {
+  update(post: any, id: any): Observable<Post> {
     // @ts-ignore
-    return this.httpClient.put(this.API_URL + `/${id}`, product);
+    return this.httpClient.put(this.API_URL + `/${id}`, post);
   }
 }

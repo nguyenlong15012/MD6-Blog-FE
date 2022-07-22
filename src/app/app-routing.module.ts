@@ -7,6 +7,7 @@ import {LoginComponent} from "./form-login/login/login.component";
 import {RegisterComponent} from "./form-login/register/register.component";
 import {MypageComponent} from "./mypage/mypage.component";
 import {FriendPageComponent} from "./friend-page/friend-page.component";
+import {UpdateComponent} from "./post/update/update.component";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent, data: {title: "Login"}},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: "list-post/:id", component: ShowListPostComponent},
   {path: "my-page", component: MypageComponent},
   {path: "friend-page/:id", component: FriendPageComponent},
+  {path: "update/:id",component:UpdateComponent}
 
 ];
 

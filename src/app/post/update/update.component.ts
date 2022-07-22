@@ -66,7 +66,7 @@ export class UpdateComponent implements OnInit {
         id: this.tokenService.getId()
       }
     }
-    this.postService.save(this.obj).subscribe(()=>{
+    this.postService.update(this.obj,this.id).subscribe(()=>{
       this.router.navigate(["/"])
     }, error => {
       alert('Lỗi');

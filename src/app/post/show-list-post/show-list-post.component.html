@@ -21,35 +21,37 @@
           <p><i class="bi bi-alarm-fill"></i> Thời gian : {{post.createAt}}</p>
           <p><i class="bi bi-pencil-fill"></i> Mô tả : {{post.description}}</p>
         <div [innerHTML]="post.content" ></div>
-          <div class="small d-flex justify-content-start">
-            <div style="width: 180px;height: 30px ;text-align: center;margin-top: 10px">
-                <button style="text-align: center;width: 120px" class="mb-0"><i class="far fa-thumbs-up me-2"></i> Like</button>
-            </div>
-
-            <div style="width: 180px;height: 30px ; text-align: center;margin-top: 10px">
-                <button style="text-align: center;width: 120px" class="mb-0"><i class="far fa-comment-dots me-2"></i> Comment</button>
-            </div>
-            <div style="width: 180px;height: 30px; text-align: center;margin-top: 10px">
-                <button style="text-align: center;width: 120px" class="mb-0"><i class="fas fa-share me-2"></i> Share</button>
-            </div>
+        </div>
+      <div>
+        <div class="small d-flex justify-content-start">
+          <div style="width: 180px;height: 30px ;text-align: center;margin-top: 10px">
+            <button style="text-align: center;width: 120px" class="mb-0"><i class="far fa-thumbs-up me-2"></i> Like</button>
           </div>
-          <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
-            <div class="d-flex flex-start w-100">
-              <div>
-                <div style="float: right;width: 70%" class="form-outline w-100">
+
+          <div style="width: 180px;height: 30px ; text-align: center;margin-top: 10px">
+            <button style="text-align: center;width: 120px" class="mb-0"><i class="far fa-comment-dots me-2"></i> Comment</button>
+          </div>
+          <div style="width: 180px;height: 30px; text-align: center;margin-top: 10px">
+            <button style="text-align: center;width: 120px" class="mb-0"><i class="fas fa-share me-2"></i> Share</button>
+          </div>
+        </div>
+        <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
+          <div class="d-flex flex-start w-100">
+            <div>
+              <div style="float: right;width: 70%" class="form-outline w-100">
                 <textarea placeholder="Comment here.."  class="form-control"
                           rows="4"
                           style="background: #fff; height: 50px; width: 450px;border-radius: 50px"></textarea>
-                  <br>
-                  <div class="float-end mt-2 pt-1">
-                    <button class="btn btn-primary btn-sm">Post comment</button>
-                    <button class="btn btn-outline-primary btn-sm">Cancel</button>
-                  </div>
+                <br>
+                <div class="float-end mt-2 pt-1">
+                  <button class="btn btn-primary btn-sm">Post comment</button>
+                  <button class="btn btn-outline-primary btn-sm">Cancel</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
       </div>
 <!--    </div>-->
   </section><!-- End About Section -->

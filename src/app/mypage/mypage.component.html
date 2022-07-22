@@ -1,28 +1,52 @@
 <app-header></app-header>
-<section id="hero" class="d-flex justify-content-center align-items-center">
-  <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-    <h1>Chào mừng bạn đến với BLOG của {{name}}</h1>
-    <h2>Hãy chia sẻ những điều thú vị</h2>
-    <a routerLink="create" class="btn-get-started">BẮT ĐẦU</a>
-  </div>
-</section><!-- End Hero -->
 
 <main id="main">
 
   <!-- ======= Events Section ======= -->
-  <section id="events" class="events" >
-    <div class="container" data-aos="fade-up">
+  <section id="events" class="events">
+    <section
+      style="background-image: url('https://i.bloganchoi.com/bloganchoi.com/wp-content/uploads/2020/09/anh-bia-dep-3-5-696x392.jpg?fit=700%2C20000&quality=95&ssl=1');padding-bottom: 0px;padding-top: 80px">
+      <div class="row d-flex justify-content-center align-items-center h-50">
+        <div class="col col-md-9 col-lg-7 col-xl-5">
+          <div class="card-body p-4" style="margin-bottom: 35px;margin-top: 15px;border-radius: 20px">
+            <div class="d-flex text-black">
+              <div class="flex-shrink-0">
+                <img src="{{avatar}}"
+                     alt="Generic placeholder image" class="img-fluid"
+                     style="width: 180px; border-radius: 10px;">
+              </div>
+              <div class="flex-grow-1 ms-3" style="text-align: center;margin-left: 20px;margin-top: 50px;">
+                <h5 style="text-align: center" class="mb-1">{{name}}</h5>
+                <button style="margin-left: 0px;border-color: white" class="get-started-btn">Edit Avatar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div style="text-align: center;padding: 15px;margin-top: 15px; background-color: #0dcaf0">
+      <h4 style="text-align: center;margin-bottom: 0px;">Trang cá nhân của bạn:</h4>
+    </div>
+    <div class="container" data-aos="fade-up" style="margin-top: 15px">
 
-      <div class="row" >
-        <div class="col-md-6 d-flex align-items-stretch"  *ngFor = "let item of list">
-          <div class="card" >
+      <div class="row">
+        <div class="col-md-6 d-flex align-items-stretch" *ngFor="let item of list">
+          <div class="card">
             <div class="card-img">
               <img src="/assets/img/events-1.jpg" alt="...">
             </div>
-            <a  class="card-body" >
-              <img data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="showConfirm(item.idPost)" style="float: right; width: 20px;height: 20px" src="https://img.icons8.com/material-sharp/2x/filled-trash.png">
-              <p>{{item.user.name}}</p>
-              <h5  class="card-title" routerLink="/list-post/{{item.idPost}}">{{item.title}}</h5>
+            <a class="card-body">
+              <img data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="showConfirm(item.idPost)"
+                   style="float: right; width: 20px;height: 20px"
+                   src="https://img.icons8.com/material-sharp/2x/filled-trash.png">
+              <!--              <p>{{item.user.name}}</p>-->
+              <div class="row">
+                <div class="col-1"><img style="height: 25px;width: 25px" src="{{item.user.avatar}}">
+                </div>
+                <div class="col-10"><h5>{{item.user.name}}</h5>
+                </div>
+              </div>
+              <h5 class="card-title" routerLink="/list-post/{{item.idPost}}">{{item.title}}</h5>
               <p class="fst-italic text-center">{{item.createAt}}</p>
               <p class="card-text">{{item.description}}</p>
             </a>
@@ -33,7 +57,8 @@
   </section><!-- End Events Section -->
 
 </main><!-- End #main -->
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+  class="bi bi-arrow-up-short"></i></a>
 <app-footer></app-footer>
 
 

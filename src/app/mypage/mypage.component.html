@@ -21,6 +21,7 @@
             </div>
             <a  class="card-body" >
               <img data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="showConfirm(item.idPost)" style="float: right; width: 20px;height: 20px" src="https://img.icons8.com/material-sharp/2x/filled-trash.png">
+              <img routerLink="/update/{{item.idPost}}" style="margin-right: 5px;float: right; width: 20px;height: 20px" src="https://img.icons8.com/external-basicons-solid-edtgraphics/2x/external-Pen-office-stationery-basicons-solid-edtgraphics.png">
               <p>{{item.user.name}}</p>
               <h5  class="card-title" routerLink="/list-post/{{item.idPost}}">{{item.title}}</h5>
               <p class="fst-italic text-center">{{item.createAt}}</p>

@@ -55,7 +55,7 @@ export class UpdateComponent implements OnInit {
       });
     })
   }
-  add() {
+  update() {
     this.obj = {
       title: this.form.value.title,
       createAt: this.form.value.createAt,

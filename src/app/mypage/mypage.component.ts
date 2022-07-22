@@ -39,7 +39,6 @@ export class MypageComponent implements OnInit {
         this.getAllPostByUser(this.tokenService.getId())
     })
   }
-
   showConfirm(id: any){
     this.idDelete = id
     // @ts-ignore

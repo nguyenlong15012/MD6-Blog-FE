@@ -6,9 +6,21 @@
   </div>
 </div>
 <form [formGroup]="form" (submit)="add()">
-  <p></p>
   <h4>Tiêu đề :</h4>
-  <input  formControlName = "title" placeholder="Tiêu đề                                                                                                                                                                                                                              0/255" class="input1">
+  <input formControlName = "title" placeholder="Tiêu đề                                                                                                                                                                                                                              0/255" class="input1">
+<!--  <div>-->
+<!--    <input type="text" id="title" class="form-control"-->
+<!--           formControlName="title" required>-->
+<!--    <div *ngIf="!title?.valid && title?.touched"-->
+<!--         class="alert alert-danger">-->
+<!--      <div *ngIf="title.errors?.['required']">-->
+<!--        Name is required.-->
+<!--      </div>-->
+<!--      <div *ngIf="title.errors?.['maxLength']">-->
+<!--        Name must be at least 4 characters long.-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
   <input type="hidden" formControlName="createAt">
   <input type="hidden" formControlName="user">
   <h4>Mô Tả :</h4>

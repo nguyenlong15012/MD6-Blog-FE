@@ -3,8 +3,9 @@ import {HttpClient} from "@angular/common/http";
 import {UserService} from "../../service/user.service";
 import {TokenService} from "../../service/token.service";
 import {PostService} from "../../service/post.service";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../model/User";
+import {Post} from "../../model/post";
 
 @Component({
   selector: 'app-create-post',
@@ -16,27 +17,29 @@ export class CreatePostComponent implements OnInit {
   congkhai = 'Mọi người';
 
   //@ts-ignore
-  name: string;
-  user:User={};
+  users:User={};
   obj:any;
   form = new FormGroup({
-
-    title: new FormControl(''),
+    title: new FormControl('', [Validators.required, Validators.maxLength(255)]),
     createAt: new FormControl(''),
-    status: new FormControl(''),
-    description: new FormControl(''),
+    status: new FormControl('', [Validators.required, Validators.maxLength(255)]),
+    description: new FormControl('', [Validators.required, Validators.maxLength(255)]),
     content: new FormControl(''),
     user: new FormControl(''),
   })
+  // get title() { return this.form.get('title'); }
+  // get status() { return this.form.get('status'); }
+  // get description() { return this.form.get('description'); }
+
   constructor(private httpClient: HttpClient,
               private userService: UserService,
               private tokenService: TokenService,
-              private postService: PostService) { }
-
+              private postService: PostService,
+             ) { }
   ngOnInit(): void {
     this.userService.getAll().subscribe((data)=> {
       console.log(data)
-      this.user = data;
+      this.users = data;
     })
   }
   add() {

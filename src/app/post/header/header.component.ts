@@ -15,7 +15,8 @@ export class HeaderComponent implements OnInit {
   //@ts-ignore
   name: string;
   checkLogin = false;
-  constructor(private tokenService: TokenService
+  constructor(private tokenService: TokenService,
+              private router: Router
               ) { }
 
   ngOnInit(): void {
@@ -29,6 +30,7 @@ export class HeaderComponent implements OnInit {
 
   logOut(){
     this.tokenService.logOut();
+    this.router.navigate(['']);
   }
 }
 

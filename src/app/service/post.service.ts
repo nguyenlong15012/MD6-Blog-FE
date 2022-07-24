@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Post} from "../model/post";
+import {environment} from "../../environments/environment.prod";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
   API_URL='http://localhost:8081/post'
+  private API_ADMIN = environment.API_LOCAL + 'admin';
   constructor(private httpClient:HttpClient) { }
   getAll(): Observable<any> {
     return this.httpClient.get(this.API_URL);
@@ -33,5 +35,10 @@ export class PostService {
 
   findAllPublicStatus(): Observable<Post>{
     return  this.httpClient.get(this.API_URL + '/find-all-public-status')
+  }
+
+  pageCategory(nextPage: any){
+    const params = nextPage;
+    return this.httpClient.get(this.API_ADMIN, {params})
   }
 }

@@ -16,6 +16,7 @@ import { FooterComponent } from './post/footer/footer.component';
 import {MypageComponent} from "./mypage/mypage.component";
 import {FriendPageComponent} from "./friend-page/friend-page.component";
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
+import { NavbarComponent } from './post/block/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
     FooterComponent,
     MypageComponent,
     FriendPageComponent,
+    NavbarComponent,
 
   ],
   imports: [

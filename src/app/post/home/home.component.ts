@@ -25,12 +25,18 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.postService.getAll().subscribe(result => {
-      this.list = result;
-      console.log(result);
-    }, error => {
-      console.log(error)
+    this.postService.findAllPublicStatus().subscribe(result => {
+        this.list = result;
+        console.log(result);
+      }, error => {
+        console.log(error)
     });
+    // this.postService.getAll().subscribe(result => {
+    //   this.list = result;
+    //   console.log(result);
+    // }, error => {
+    //   console.log(error)
+    // });
   }
 
   getTimeLine(id: any) {

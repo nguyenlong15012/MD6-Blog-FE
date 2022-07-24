@@ -11,6 +11,10 @@ import {Router} from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  // @ts-ignore
+  returnUrl: string;
+  // @ts-ignore
+  adminUrl: string;
   hide = true;
   form: any = {};
   //@ts-ignore
@@ -32,6 +36,8 @@ export class LoginComponent implements OnInit {
       return this.loginForm.get('username');
   }
   ngOnInit(): void{
+    this.returnUrl = '';
+    this.adminUrl = '/admin';
   }
   ngSubmit(){
     console.log('vao chua ====>')
@@ -44,12 +50,19 @@ export class LoginComponent implements OnInit {
       if (data.token !== undefined){
         this.tokenService.setToken(data.token);
         this.tokenService.setName(data.name);
-        this.tokenService.setRole(data.roles);
         this.tokenService.setId(data.id);
         this.tokenService.setAvatar(data.avatar);
-        this.router.navigate(['']).then(()  => {
-          window.location.reload();
-        });
+        this.tokenService.setRole(data.roles);
+        if (data.roles[0].authority == "ADMIN"){
+          this.router.navigate([this.adminUrl]).then(()  => {
+            window.location.reload();
+          });
+        }else {
+          this.router.navigate([this.returnUrl]).then(() => {
+            window.location.reload();
+          })
+        }
+
       }
     });
   }

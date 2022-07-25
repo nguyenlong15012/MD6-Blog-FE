@@ -39,7 +39,7 @@ export class MypageComponent implements OnInit {
 
   deletePost(id: any) {
     this.postService.delete(id).subscribe(data =>{
-        this.getAllPostByUser(this.tokenService.getId())
+      this.getAllPostByUser(this.tokenService.getId());
     })
   }
 

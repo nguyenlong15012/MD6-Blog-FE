@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {PostService} from "../../service/post.service";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {Post} from "../../model/post";
+import {TokenService} from "../../service/token.service";
 
 @Component({
   selector: 'app-show-list-post',
@@ -14,13 +15,17 @@ export class ShowListPostComponent implements OnInit {
 
   // @ts-ignore
   post: Post;
-
+  checkLogin = false;
   constructor(
     private activateRoute: ActivatedRoute,
-    private postService: PostService) {
+    private postService: PostService,
+    private tokenService: TokenService) {
   }
 
   ngOnInit(): void {
+    if (this.tokenService.getToken()){
+      this.checkLogin = true;
+    }
     this.post = {
       title :'',
       createAt:'',

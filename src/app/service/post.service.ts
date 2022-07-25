@@ -30,4 +30,8 @@ export class PostService {
     // @ts-ignore
     return this.httpClient.put(this.API_URL + `/${id}`, post);
   }
+
+  findAllPublicStatus(): Observable<Post>{
+    return  this.httpClient.get(this.API_URL + '/find-all-public-status')
+  }
 }

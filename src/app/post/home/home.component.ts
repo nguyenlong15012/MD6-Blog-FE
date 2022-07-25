@@ -5,6 +5,7 @@ import {PostService} from "../../service/post.service";
 import {TokenService} from "../../service/token.service";
 import {Router} from "@angular/router";
 import {UserService} from "../../service/user.service";
+import {Post} from "../../model/post";
 
 @Component({
   selector: 'app-home',
@@ -12,11 +13,13 @@ import {UserService} from "../../service/user.service";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  list: any;
+  list: Post[] = [];
   searchForm = new FormGroup({
     name: new FormControl('')
   })
-
+  //@ts-ignore
+  name: string;
+  checkLogin = false;
   constructor(private httpClient: HttpClient,
               private postService: PostService,
               private tokenService: TokenService,
@@ -25,11 +28,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.postService.getAll().subscribe(result => {
+    this.postService.findAllPublicStatus().subscribe(result => {
+        // @ts-ignore
       this.list = result;
-      console.log(result);
-    }, error => {
-      console.log(error)
+        console.log(result);
+      }, error => {
+        console.log(error)
     });
   }
 

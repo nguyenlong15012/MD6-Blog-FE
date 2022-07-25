@@ -7,6 +7,7 @@ import {LoginComponent} from "./form-login/login/login.component";
 import {RegisterComponent} from "./form-login/register/register.component";
 import {MypageComponent} from "./mypage/mypage.component";
 import {FriendPageComponent} from "./friend-page/friend-page.component";
+import {UpdateComponent} from "./post/update/update.component";
 import {AdminComponent} from "./admin/admin/admin.component";
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: "list-post/:id", component: ShowListPostComponent},
   {path: "my-page", component: MypageComponent},
   {path: "friend-page/:id", component: FriendPageComponent},
-  {path: 'admin', component: AdminComponent ,data: {title: 'Dashboard'}},
+  {path: "update/:id", component: UpdateComponent},
+  {path: 'admin', component: AdminComponent, data: {title: 'Dashboard'}},
 ];
 
 @NgModule({

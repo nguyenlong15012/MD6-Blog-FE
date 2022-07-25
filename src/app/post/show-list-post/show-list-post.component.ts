@@ -31,6 +31,7 @@ export class ShowListPostComponent implements OnInit {
       createAt:'',
       status:'',
       description: '',
+      tag: '',
       content: '',
       user:''
     }

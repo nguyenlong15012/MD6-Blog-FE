@@ -17,7 +17,9 @@ export class HomeComponent implements OnInit {
   searchForm = new FormGroup({
     name: new FormControl('')
   })
-
+  //@ts-ignore
+  name: string;
+  checkLogin = false;
   constructor(private httpClient: HttpClient,
               private postService: PostService,
               private tokenService: TokenService,
@@ -33,12 +35,6 @@ export class HomeComponent implements OnInit {
       }, error => {
         console.log(error)
     });
-    // this.postService.getAll().subscribe(result => {
-    //   this.list = result;
-    //   console.log(result);
-    // }, error => {
-    //   console.log(error)
-    // });
   }
 
   getTimeLine(id: any) {

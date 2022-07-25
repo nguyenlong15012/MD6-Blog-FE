@@ -4,6 +4,7 @@ import {UserService} from "../service/user.service";
 import {PostService} from "../service/post.service";
 import {User} from "../model/User";
 import {ActivatedRoute, ParamMap} from "@angular/router";
+import {TokenService} from "../service/token.service";
 
 @Component({
   selector: 'app-friend-page',
@@ -13,11 +14,12 @@ import {ActivatedRoute, ParamMap} from "@angular/router";
 export class FriendPageComponent implements OnInit {
   list: any;
   // @ts-ignore
-  user: User
+  user: User;
   constructor(private httpClient: HttpClient,
               private userService: UserService,
               private postService: PostService,
-              private activateRoute: ActivatedRoute,) {
+              private activateRoute: ActivatedRoute,
+             ) {
   };
 
   ngOnInit(): void {

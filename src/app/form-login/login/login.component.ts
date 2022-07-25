@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
         this.tokenService.setName(data.name);
         this.tokenService.setId(data.id);
         this.tokenService.setAvatar(data.avatar);
+        this.router.navigate([''])
         this.tokenService.setRole(data.roles);
         if (data.roles[0].authority == "ADMIN"){
           this.router.navigate([this.adminUrl]).then(()  => {
@@ -62,7 +63,6 @@ export class LoginComponent implements OnInit {
             window.location.reload();
           })
         }
-
       }
     });
   }

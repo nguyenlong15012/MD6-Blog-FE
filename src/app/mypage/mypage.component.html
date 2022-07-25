@@ -1,4 +1,11 @@
 <app-header></app-header>
+<section id="hero" class="d-flex justify-content-center align-items-center">
+  <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+    <h1>Chào mừng bạn đến với BLOG của {{name}}</h1>
+    <h2>Hãy chia sẻ những điều thú vị</h2>
+    <a routerLink="create" class="btn-get-started">BẮT ĐẦU</a>
+  </div>
+</section><!-- End Hero -->
 
 <main id="main">
 
@@ -29,24 +36,17 @@
     </div>
     <div class="container" data-aos="fade-up" style="margin-top: 15px">
 
-      <div class="row">
-        <div class="col-md-6 d-flex align-items-stretch" *ngFor="let item of list">
-          <div class="card">
+      <div class="row" >
+        <div class="col-md-6 d-flex align-items-stretch"  *ngFor = "let item of list">
+          <div class="card" >
             <div class="card-img">
               <img src="/assets/img/events-1.jpg" alt="...">
             </div>
-            <a class="card-body">
-              <img data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="showConfirm(item.idPost)"
-                   style="float: right; width: 20px;height: 20px"
-                   src="https://img.icons8.com/material-sharp/2x/filled-trash.png">
-              <!--              <p>{{item.user.name}}</p>-->
-              <div class="row">
-                <div class="col-1"><img style="height: 25px;width: 25px" src="{{item.user.avatar}}">
-                </div>
-                <div class="col-10"><h5>{{item.user.name}}</h5>
-                </div>
-              </div>
-              <h5 class="card-title" routerLink="/list-post/{{item.idPost}}">{{item.title}}</h5>
+            <a  class="card-body" >
+              <img data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="showConfirm(item.idPost)" style="float: right; width: 20px;height: 20px" src="https://img.icons8.com/material-sharp/2x/filled-trash.png">
+              <img routerLink="/update/{{item.idPost}}" style="margin-right: 5px;float: right; width: 20px;height: 20px" src="https://img.icons8.com/external-basicons-solid-edtgraphics/2x/external-Pen-office-stationery-basicons-solid-edtgraphics.png">
+              <p>{{item.user.name}}</p>
+              <h5  class="card-title" routerLink="/list-post/{{item.idPost}}">{{item.title}}</h5>
               <p class="fst-italic text-center">{{item.createAt}}</p>
               <p class="card-text">{{item.description}}</p>
             </a>
@@ -57,8 +57,7 @@
   </section><!-- End Events Section -->
 
 </main><!-- End #main -->
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-  class="bi bi-arrow-up-short"></i></a>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 <app-footer></app-footer>
 
 
@@ -76,7 +75,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button (click)="deletePost(idDelete)" type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button>
+        <button (click)="deletePost(idDelete)" class="btn btn-primary" data-bs-dismiss="modal">Delete</button>
       </div>
     </div>
   </div>

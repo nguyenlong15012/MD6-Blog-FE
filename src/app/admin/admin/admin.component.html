@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-navbar></app-navbar>
 <section id="hero" class="d-flex justify-content-center align-items-center">
   <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
     <h1>Chào mừng bạn đến với BLOG K</h1>
@@ -23,12 +23,6 @@
               <img src="/assets/img/events-1.jpg" alt="...">
             </div>
             <a  class="card-body">
-              <div class="row">
-                <div class="col-1"> <img (click)="getTimeLine(item.user.id)" style="height: 25px;width: 25px" src="{{item.user.avatar}}">
-                </div>
-                <div class="col-10"> <h5 (click)="getTimeLine(item.user.id)">{{item.user.name}}</h5>
-                </div>
-              </div>
               <h5  class="card-title"  routerLink="/list-post/{{item.idPost}}">{{item.title}}</h5>
               <p class="fst-italic text-center">{{item.createAt}}</p>
               <p class="card-text">{{item.description}}</p>
@@ -40,4 +34,3 @@
   </section>
 </main>
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-<app-footer></app-footer>

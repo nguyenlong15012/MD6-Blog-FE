@@ -1,18 +1,18 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {Post} from "../../model/post";
 import {FormControl, FormGroup} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {PostService} from "../../service/post.service";
 import {TokenService} from "../../service/token.service";
 import {Router} from "@angular/router";
 import {UserService} from "../../service/user.service";
-import {Post} from "../../model/post";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.css']
 })
-export class HomeComponent implements OnInit {
+export class AdminComponent implements OnInit {
   list: Post[] = [];
   searchForm = new FormGroup({
     name: new FormControl('')
@@ -26,12 +26,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.postService.findAllPublicStatus().subscribe(result => {
-        // @ts-ignore
+    this.postService.getAll().subscribe(result => {
+      // @ts-ignore
       this.list = result;
-        console.log(result);
-      }, error => {
-        console.log(error)
+      console.log(result);
+    }, error => {
+      console.log(error)
     });
     // this.postService.getAll().subscribe(result => {
     //   this.list = result;
@@ -41,12 +41,12 @@ export class HomeComponent implements OnInit {
     // });
   }
 
-  getTimeLine(id: any) {
-    if (id == this.tokenService.getId()) {
-      this.router.navigate(['/my-page'])
-    } else {
-      this.router.navigate(['/friend-page/'+id]);
-    }
-  }
+  // getTimeLine(id: any) {
+  //   if (id == this.tokenService.getId()) {
+  //     this.router.navigate(['/my-page'])
+  //   } else {
+  //     this.router.navigate(['/friend-page/'+id]);
+  //   }
+  // }
 
 }

@@ -18,6 +18,7 @@ export class UpdateComponent implements OnInit {
     createAt: new FormControl(''),
     status: new FormControl(''),
     description: new FormControl(''),
+    tag: new FormControl(''),
     content: new FormControl(''),
     user: new FormControl(''),
   })
@@ -51,6 +52,7 @@ export class UpdateComponent implements OnInit {
         createAt: new FormControl(data.createAt),
         status: new FormControl(data.status),
         description: new FormControl(data.description),
+        tag: new FormControl(data.tag),
         content: new FormControl(data.content),
       });
     })
@@ -61,11 +63,13 @@ export class UpdateComponent implements OnInit {
       createAt: this.form.value.createAt,
       status: this.form.value.status,
       description : this.form.value.description,
+      tag : this.form.value.tag,
       content : this.form.value.content,
       user: {
         id: this.tokenService.getId()
       }
     }
+
     this.postService.update(this.obj,this.id).subscribe(()=>{
       this.router.navigate(["/"])
     }, error => {

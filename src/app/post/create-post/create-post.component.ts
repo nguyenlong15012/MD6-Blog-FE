@@ -24,6 +24,7 @@ export class CreatePostComponent implements OnInit {
     createAt: new FormControl(''),
     status: new FormControl(''),
     description: new FormControl(''),
+    tag: new FormControl(''),
     content: new FormControl(''),
     user: new FormControl(''),
   })
@@ -44,6 +45,7 @@ export class CreatePostComponent implements OnInit {
       createAt: this.form.value.createAt,
       status: this.form.value.status,
       description : this.form.value.description,
+      tag : this.form.value.description,
       content : this.form.value.content,
       user: {
         id: this.tokenService.getId()

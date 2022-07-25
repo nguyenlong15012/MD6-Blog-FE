@@ -11,7 +11,8 @@
 
       <div class="row">
         <!--       <img (click)="deletePost(post.idPost)" style="float: right; width: 20px;height: 20px" src="https://img.icons8.com/material-sharp/2x/filled-trash.png">-->
-        <h2>{{post.title}}</h2>
+        <a style="color: blue;font-style:italic ">#{{post.tag}}</a>
+        <h2 style="font-family: 'Helvetica Neue'">{{post.title}}</h2>
         <p><i class="bi bi-alarm-fill"></i> Thời gian : {{post.createAt}}</p>
         <p><i class="bi bi-pencil-fill"></i> Mô tả : {{post.description}}</p>
         <div [innerHTML]="post.content"></div>

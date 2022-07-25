@@ -12,6 +12,7 @@ import {PostService} from "../service/post.service";
 export class MypageComponent implements OnInit {
 //@ts-ignore
   name: string;
+  avatar: any;
   list: any;
   idDelete: any;
   constructor(private httpClient: HttpClient,
@@ -21,7 +22,9 @@ export class MypageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllPostByUser(this.tokenService.getId())
+    this.getAllPostByUser(this.tokenService.getId());
+    this.avatar = this.tokenService.getAvatar();
+    this.name = this.tokenService.getName();
   }
 
   getAllPostByUser(id: any) {
@@ -36,7 +39,7 @@ export class MypageComponent implements OnInit {
 
   deletePost(id: any) {
     this.postService.delete(id).subscribe(data =>{
-        this.getAllPostByUser(this.tokenService.getId())
+      this.getAllPostByUser(this.tokenService.getId());
     })
   }
   showConfirm(id: any){

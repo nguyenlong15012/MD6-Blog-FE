@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {Router} from "@angular/router";
 const TOKEN_KEY = 'Token_Key';
 const NAME_KEY = 'Name_Key';
 const ROLE_KEY = 'Role_Key';
@@ -10,7 +11,7 @@ const AVATAR_KEY = 'Avatar_Key';
 })
 export class TokenService {
   private roles: Array<string> = [];
-  constructor() { }
+  constructor(private router: Router) { }
   public setToken(token: string){
     window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.setItem(TOKEN_KEY, token);
@@ -63,6 +64,7 @@ export class TokenService {
   }
   public logOut(){
     window.sessionStorage.clear();
+    // this.router.navigate([''])
     window.location.reload();
   }
 }

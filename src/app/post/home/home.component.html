@@ -1,4 +1,31 @@
-<app-header></app-header>
+
+<header id="header" class="fixed-top">
+  <div class="container d-flex align-items-center">
+
+    <h1 class="logo me-auto"><a routerLink="">BLOG K</a></h1>
+    <nav id="navbar" class="navbar order-last order-lg-0">
+      <ul>
+        <li><a class="active" routerLink="">Trang chủ</a></li>
+        <li><a *ngIf="checkLogin" routerLink="/create">Tạo blog</a></li>
+        <li class="dropdown" *ngIf="!checkLogin"><a><span>Đăng nhập</span> <i class="bi bi-chevron-down"></i></a>
+          <ul>
+            <li><a *ngIf="!checkLogin" routerLink="/login">Đăng Nhập</a></li>
+            <li><a *ngIf="!checkLogin" routerLink="/register">Đăng Ký</a></li>
+          </ul>
+        </li>
+
+      </ul>
+      <form [formGroup]="searchForm" (submit)="search()" style="margin-left: 20px" class="form-inline d-flex justify-content-center md-form form-sm mt-0">
+        <input formControlName="title" class="form-control form-control-sm ml-3 w-75" type="search" placeholder="Tìm kiếm"
+               aria-label="Search">
+        <button type="submit" style="margin-left: 5px;border-radius: 25%;color: black;background-color: #3ac162"> <i class="bi bi-search" aria-hidden="true"></i></button>
+      </form>
+
+    </nav>
+    <a *ngIf="checkLogin" style="text-decoration: none" routerLink="/my-page" class="get-started-btn">{{name}}</a>
+    <a *ngIf="checkLogin" (click)="logOut()" class="get-started-btn">Đăng xuất</a>
+  </div>
+</header>
 <section id="hero" class="d-flex justify-content-center align-items-center">
   <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
     <h1>Chào mừng bạn đến với BLOG K</h1>
@@ -6,6 +33,7 @@
     <a routerLink="create" class="btn-get-started">BẮT ĐẦU</a>
   </div>
 </section>
+
 <main id="main">
   <div class="breadcrumbs" data-aos="fade-in">
     <div class="container">

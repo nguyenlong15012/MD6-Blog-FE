@@ -23,6 +23,18 @@ import {UploadAvatarComponent} from "./upload/upload-avatar/upload-avatar.compon
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment.prod";
+import {MatInputModule} from "@angular/material/input";
+import {MatCardModule} from "@angular/material/card";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { ChangeAvatarComponent } from './form-login/change-avatar/change-avatar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,10 +50,21 @@ import {environment} from "../environments/environment.prod";
     UpdateComponent,
     AdminComponent,
     NavbarComponent,
-    UploadAvatarComponent
+    UploadAvatarComponent,
+    ChangeAvatarComponent
   ],
   imports: [
     FormsModule,
+    MatInputModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatRadioModule,
+    MatCheckboxModule,
+    MatSlideToggleModule,
+    MatButtonModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -49,7 +72,7 @@ import {environment} from "../environments/environment.prod";
     BrowserAnimationsModule,
     EditorModule,
     AngularFireStorageModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud")
+    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
   ],
   providers: [ { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }],
   bootstrap: [AppComponent]

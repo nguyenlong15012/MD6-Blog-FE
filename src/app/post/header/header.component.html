@@ -25,6 +25,14 @@
 
     </nav><!-- .navbar -->
     <a *ngIf="checkLogin" style="text-decoration: none" routerLink="/my-page" class="get-started-btn">{{name}}</a>
+    <a *ngIf="checkLogin" style="color: springgreen; text-decoration: none;"
+       aria-label="Angular Audio Player"
+       mat-button tabindex="0" aria-disabled="false" routerLink="/my-page">
+    <span class="mat-button-wrapper">
+      <img  style="border-radius: 50%" src="" alt="angular" class="image-change" [src]=avatar width="40px" height="40px"></span>
+      <div class="mat-button-ripple mat-ripple" matripple=""></div>
+      <div class="mat-button-focus-overlay"></div>
+    </a><span class="example-spacer"></span>
     <a *ngIf="checkLogin" (click)="logOut()" class="get-started-btn">Đăng xuất</a>
   </div>
 </header>

@@ -14,6 +14,8 @@ import {Router} from "@angular/router";
 export class HeaderComponent implements OnInit {
   //@ts-ignore
   name: string;
+  // @ts-ignore
+  avatar: string;
   checkLogin = false;
   constructor(private tokenService: TokenService,
               private router: Router
@@ -23,8 +25,8 @@ export class HeaderComponent implements OnInit {
     if (this.tokenService.getToken()){
       this.checkLogin = true;
       this.name = this.tokenService.getName();
-      // this.avatar = this.tokenService.getAvatar();
-      // console.log('avatar   ====> ', this.avatar);
+      this.avatar = this.tokenService.getAvatar();
+      console.log('avatar   ====> ', this.avatar);
     }
   }
 

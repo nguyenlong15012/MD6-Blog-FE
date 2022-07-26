@@ -34,4 +34,8 @@ export class PostService {
   findAllPublicStatus(): Observable<Post>{
     return  this.httpClient.get(this.API_URL + '/find-all-public-status')
   }
+
+  findCommentByPost(idPost: any): Observable<any>{
+    return this.httpClient.get(this.API_URL+'/view-comment'+`/${idPost}`)
+  }
 }

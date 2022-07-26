@@ -2,7 +2,7 @@
 // @ts-ignore
 // @ts-ignore
 
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {TokenService} from "../../service/token.service";
 import {Router} from "@angular/router";
 import {PostService} from "../../service/post.service";
@@ -16,6 +16,8 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 export class HeaderComponent implements OnInit {
   //@ts-ignore
   name: string;
+  // @ts-ignore
+  avatar: string;
   checkLogin = false;
   searchForm: any;
 
@@ -34,8 +36,8 @@ export class HeaderComponent implements OnInit {
     if (this.tokenService.getToken()) {
       this.checkLogin = true;
       this.name = this.tokenService.getName();
-      // this.avatar = this.tokenService.getAvatar();
-      // console.log('avatar   ====> ', this.avatar);
+      this.avatar = this.tokenService.getAvatar();
+      console.log('avatar   ====> ', this.avatar);
     }
   }
 
@@ -45,6 +47,7 @@ export class HeaderComponent implements OnInit {
 
   logOut() {
     this.tokenService.logOut();
+    this.router.navigate(['']);
   }
 }
 

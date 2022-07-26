@@ -6,6 +6,7 @@ import {PostService} from "../../service/post.service";
 import {TokenService} from "../../service/token.service";
 import {Router} from "@angular/router";
 import {UserService} from "../../service/user.service";
+import {environment} from "../../../environments/environment.prod";
 
 @Component({
   selector: 'app-admin',
@@ -17,6 +18,9 @@ export class AdminComponent implements OnInit {
   searchForm = new FormGroup({
     name: new FormControl('')
   })
+  totalElements: number = 0;
+
+
 
   constructor(private httpClient: HttpClient,
               private postService: PostService,
@@ -26,27 +30,30 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.postService.getAll().subscribe(result => {
-      // @ts-ignore
-      this.list = result;
-      console.log(result);
-    }, error => {
-      console.log(error)
-    });
-    // this.postService.getAll().subscribe(result => {
-    //   this.list = result;
-    //   console.log(result);
-    // }, error => {
-    //   console.log(error)
-    // });
+   this.pageCategory({page: 0, size: 10})
   }
-
-  // getTimeLine(id: any) {
-  //   if (id == this.tokenService.getId()) {
-  //     this.router.navigate(['/my-page'])
-  //   } else {
-  //     this.router.navigate(['/friend-page/'+id]);
-  //   }
+  // ngOnInit(): void {
+  //   this.postService.getAll().subscribe(result => {
+  //     // @ts-ignore
+  //     this.list = result;
+  //     console.log(result);
+  //   }, error => {
+  //     console.log(error)
+  //   });
   // }
+
+
+
+  pageCategory(nextPage: any){
+    this.postService.pageCategory(nextPage).subscribe(data => {
+      console.log('data ====> ', data);
+      // @ts-ignore
+      this.list = data['content']
+      // @ts-ignore
+      console.log('data[content]', data['content']);
+      // @ts-ignore
+      this.totalElements = data['totalElements'];
+    })
+  }
 
 }

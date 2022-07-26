@@ -10,52 +10,104 @@
   <!-- ======= About Section ======= -->
   <section id="about" class="about">
     <div class="container" data-aos="fade-up">
-
       <div class="row">
-<!--        <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">-->
-<!--          <img src="/assets/img/about.jpg" class="img-fluid" alt="">-->
-<!--        </div>-->
-<!--        <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">-->
-<!--          <img (click)="deletePost(post.idPost)" style="float: right; width: 20px;height: 20px" src="https://img.icons8.com/material-sharp/2x/filled-trash.png">-->
-          <h2>{{post.title}}</h2>
-          <p><i class="bi bi-alarm-fill"></i> Thời gian : {{post.createAt}}</p>
-          <p><i class="bi bi-pencil-fill"></i> Mô tả : {{post.description}}</p>
-        <div [innerHTML]="post.content" ></div>
+        <h2>{{post.title}}</h2>
+        <p><i class="bi bi-alarm-fill"></i> Thời gian : {{post.createAt}}</p>
+        <p><i class="bi bi-pencil-fill"></i> Mô tả : {{post.description}}</p>
+        <div [innerHTML]="post.content"></div>
+      </div>
+      <div style=";background-color: white" class="row" *ngIf="checkLogin">
+        <div class="col-2">
         </div>
-      <div *ngIf="checkLogin">
-        <div class="small d-flex justify-content-start">
-          <div style="width: 180px;height: 30px ;text-align: center;margin-top: 10px">
-            <button style="text-align: center;width: 120px" class="mb-0"><i class="far fa-thumbs-up me-2"></i> Like</button>
-          </div>
-
-          <div style="width: 180px;height: 30px ; text-align: center;margin-top: 10px">
-            <button style="text-align: center;width: 120px" class="mb-0"><i class="far fa-comment-dots me-2"></i> Comment</button>
-          </div>
-          <div style="width: 180px;height: 30px; text-align: center;margin-top: 10px">
-            <button style="text-align: center;width: 120px" class="mb-0"><i class="fas fa-share me-2"></i> Share</button>
-          </div>
-        </div>
-        <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
-          <div class="d-flex flex-start w-100">
+        <div class="col-8">
+          <button class="button1 button"><i class="far fa-thumbs-up me-2"></i> Like</button>
+          <button class="button button1"><i class="far fa-comment-dots me-2"></i> Comment</button>
+          <button class="button button1"><i class="fas fa-share me-2"></i> Share</button>
+          <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
             <div>
-              <div style="float: right;width: 70%" class="form-outline w-100">
-                <textarea placeholder="Comment here.."  class="form-control"
-                          rows="4"
-                          style="background: #fff; height: 50px; width: 450px;border-radius: 50px"></textarea>
+              <table *ngFor="let cmt of commentList">
+                <tr>
+                  <td rowspan="2" style="padding-right: 20px; padding-left: 10px"><img
+                    (click)="getTimeLine(cmt.user.id)"
+                    style="width: 40px;height: 40px"
+                    src="{{cmt.user.avatar}}"></td>
+                  <td style="font-style: italic;font-weight: bold;width: 575px"
+                      (click)="getTimeLine(cmt.user.id)">{{cmt.user.username}}</td>
+                </tr>
+                <tr>
+                  <td style="background-color: rgba(245,205,181,0.91);border-radius: 10px;padding: 10px;">{{cmt.content}}</td>
+                  <td style="padding-left: 15px"><img style="margin-right: 5px;float: right; width: 15px;height: 15px" src="https://img.icons8.com/external-basicons-solid-edtgraphics/2x/external-Pen-office-stationery-basicons-solid-edtgraphics.png"></td>
+                  <td style="padding-left: 15px"><img data-bs-toggle="modal" data-bs-target="#exampleModal"
+                           style="float: right; width: 15px;height: 15px" (click)="showConfirm(cmt.idComment)"
+                           src="https://img.icons8.com/material-sharp/2x/filled-trash.png"></td>
+                </tr>
+              </table>
+            </div>
+            <form class="d-flex flex-start w-100" [formGroup]="commentForm" (ngSubmit)="createCmt(post.idPost)">
+              <div style="float: right;width: 100%;padding-top: 15px" class="">
+                <textarea placeholder="Comment here.." class="form-control"
+                          rows="4" formControlName="content"
+                          style="background: #fff; height: 50px; width: 704px;border-radius: 10px"></textarea>
                 <br>
                 <div class="float-end mt-2 pt-1">
-                  <button class="btn btn-primary btn-sm">Post comment</button>
-                  <button class="btn btn-outline-primary btn-sm">Cancel</button>
+                  <button style="border-color: white;margin-right: 5px;background-color: lightgrey;color: black"
+                          class="get-started-btn">Comment
+                  </button>
+                  <button style="border-color: white;background-color: lightgrey;color: black;margin-left: 10px"
+                          class="get-started-btn" (click)="clearForm()">Cancel
+                  </button>
                 </div>
               </div>
-            </div>
+            </form>
           </div>
+        <div class="col-2">
         </div>
       </div>
-      </div>
-<!--    </div>-->
+    </div>
+  </div>
   </section><!-- End About Section -->
 
 </main><!-- End #main -->
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+  class="bi bi-arrow-up-short"></i></a>
 <app-footer></app-footer>
+<style>.button {
+  width: 241px;
+  border: none;
+  color: black;
+  padding: 11px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 1px;
+}
+
+.button1:hover {
+  background-color: deepskyblue;
+  color: white;
+}</style>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #dc3545; color: white">
+        <h5 class="modal-title" id="exampleModalLabel">Delete confirm</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <input type="hidden" >
+      </div>
+      <div class="modal-body">
+        Bạn có thực sự muốn xóa bài bình luận này không?
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button (click)="deleteCmt(idDelete)" type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+

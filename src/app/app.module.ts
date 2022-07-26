@@ -19,6 +19,10 @@ import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { UpdateComponent } from './post/update/update.component';
 import { AdminComponent } from './admin/admin/admin.component';
 import { NavbarComponent } from './admin/navbar/navbar.component';
+import {UploadAvatarComponent} from "./upload/upload-avatar/upload-avatar.component";
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment.prod";
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +38,7 @@ import { NavbarComponent } from './admin/navbar/navbar.component';
     UpdateComponent,
     AdminComponent,
     NavbarComponent,
+    UploadAvatarComponent
   ],
   imports: [
     FormsModule,
@@ -42,7 +47,9 @@ import { NavbarComponent } from './admin/navbar/navbar.component';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    EditorModule
+    EditorModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud")
   ],
   providers: [ { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }],
   bootstrap: [AppComponent]

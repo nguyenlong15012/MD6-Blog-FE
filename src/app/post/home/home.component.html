@@ -23,6 +23,14 @@
 
     </nav>
     <a *ngIf="checkLogin" style="text-decoration: none" routerLink="/my-page" class="get-started-btn">{{name}}</a>
+    <a *ngIf="checkLogin" style="color: springgreen; text-decoration: none;"
+       aria-label="Angular Audio Player"
+       mat-button tabindex="0" aria-disabled="false" routerLink="/my-page">
+    <span class="mat-button-wrapper">
+      <img  style="border-radius: 50%" src="" alt="angular" class="image-change" [src]=avatar width="40px" height="40px"></span>
+    <div class="mat-button-ripple mat-ripple" matripple=""></div>
+    <div class="mat-button-focus-overlay"></div>
+    </a><span class="example-spacer"></span>
     <a *ngIf="checkLogin" (click)="logOut()" class="get-started-btn">Đăng xuất</a>
   </div>
 </header>
@@ -68,5 +76,5 @@
   </section>
 </main>
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-<app-upload-avatar></app-upload-avatar>
+<app-upload-avatar (giveURLtoCreate)="onChangeAvatar($event)"></app-upload-avatar>
 <app-footer></app-footer>

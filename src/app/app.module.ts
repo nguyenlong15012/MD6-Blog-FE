@@ -36,6 +36,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { ChangeAvatarComponent } from './form-login/change-avatar/change-avatar.component';
 
 import {Ng2SearchPipeModule} from "ng2-search-filter";
+import {httpInterceptorProviders} from "./security/auth.interceptor";
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,10 +74,10 @@ import {Ng2SearchPipeModule} from "ng2-search-filter";
     BrowserAnimationsModule,
     EditorModule,
     AngularFireStorageModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     Ng2SearchPipeModule
   ],
-  providers: [ { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }],
+  providers: [httpInterceptorProviders, { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

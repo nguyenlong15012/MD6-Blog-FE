@@ -74,7 +74,8 @@ export class MypageComponent implements OnInit {
         this.status = 'Please upload Avatar!';
       }
       if (JSON.stringify(data) === JSON.stringify(this.success)){
-        this.status = 'Change Avatar success!';
+        // this.status = 'Change Avatar success!';
+        alert('Change Avatar success!');
         this.tokenService.setAvatar(this.form.avatar);
         window.location.reload();
       }

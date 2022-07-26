@@ -16,8 +16,17 @@
               </div>
               <div class="flex-grow-1 ms-3" style="text-align: center;margin-left: 20px;margin-top: 50px;">
                 <h5 style="text-align: center" class="mb-1">{{name}}</h5>
-                <button style="margin-left: 0px;border-color: white" class="get-started-btn">Edit Avatar</button>
+
+                <form class="change-avatar"  (ngSubmit)="onSubmit()">
+                  <button style="margin-left: 0px;border-color: white" class="get-started-btn">Edit Avatar</button>
+                </form>
               </div>
+
+            </div>
+            <div class="change-avatar">
+              <!--                <mat-error class="alert alert-primary">{{status}}</mat-error><br><br>-->
+              <app-upload-avatar (giveURLtoCreate)="onUploadAvatar($event)"></app-upload-avatar>
+
             </div>
           </div>
         </div>

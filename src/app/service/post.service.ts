@@ -34,4 +34,8 @@ export class PostService {
   findAllPublicStatus(): Observable<Post>{
     return  this.httpClient.get(this.API_URL + '/find-all-public-status')
   }
+
+  findAllByTitleContaining(title:any): Observable<Post>{
+    return this.httpClient.get(this.API_URL+`/search?title=`+`${title}`)
+  }
 }

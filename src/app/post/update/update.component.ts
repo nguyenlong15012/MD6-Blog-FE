@@ -71,7 +71,7 @@ export class UpdateComponent implements OnInit {
     }
 
     this.postService.update(this.obj,this.id).subscribe(()=>{
-      this.router.navigate(["/"])
+      this.router.navigate(["/my-page"])
     }, error => {
       alert('Lỗi');
     })

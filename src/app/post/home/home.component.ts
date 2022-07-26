@@ -15,7 +15,7 @@ import {Post} from "../../model/post";
 export class HomeComponent implements OnInit {
   list: Post[] = [];
   searchForm = new FormGroup({
-    name: new FormControl('')
+    title: new FormControl('')
   })
   //@ts-ignore
   name: string;
@@ -35,6 +35,12 @@ export class HomeComponent implements OnInit {
       }, error => {
         console.log(error)
     });
+    if (this.tokenService.getToken()){
+      this.checkLogin = true;
+      this.name = this.tokenService.getName();
+      // this.avatar = this.tokenService.getAvatar();
+      // console.log('avatar   ====> ', this.avatar);
+    }
   }
 
   getTimeLine(id: any) {
@@ -44,5 +50,14 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/friend-page/'+id]);
     }
   }
-
+  search() {
+    this.postService.findAllByTitleContaining(this.searchForm.value.title).subscribe((data)=> {
+      // @ts-ignore
+      this.list=data;
+      console.log(data)
+    })
+  }
+  logOut(){
+    this.tokenService.logOut()
+  }
 }

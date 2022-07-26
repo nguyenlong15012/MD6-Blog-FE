@@ -37,6 +37,7 @@ import { ChangeAvatarComponent } from './form-login/change-avatar/change-avatar.
 
 import {Ng2SearchPipeModule} from "ng2-search-filter";
 import {httpInterceptorProviders} from "./security/auth.interceptor";
+import {MatPaginatorModule} from "@angular/material/paginator";
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,7 +76,8 @@ import {httpInterceptorProviders} from "./security/auth.interceptor";
     EditorModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    MatPaginatorModule
   ],
   providers: [httpInterceptorProviders, { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }],
   bootstrap: [AppComponent]

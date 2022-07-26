@@ -46,7 +46,7 @@ export class PostService {
     return this.httpClient.get(this.API_URL+'/view-comment'+`/${idPost}`)
   }
 
-  pageCategory(nextPage: any){
+  pagePost(nextPage: any){
     const params = nextPage;
     return this.httpClient.get(this.API_ADMIN, {params})
   }

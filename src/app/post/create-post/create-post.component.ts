@@ -55,8 +55,7 @@ export class CreatePostComponent implements OnInit {
     }
     this.postService.save(this.obj).subscribe(()=>{
       alert('Thành công');
-
-      // this.router.navigate(["/"])
+      this.router.navigate(["/"])
     }, error => {
       alert('Lỗi');
     })

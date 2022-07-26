@@ -71,16 +71,17 @@ export class MypageComponent implements OnInit {
 
     this.authService.changeAvatar(this.changeAvagtar).subscribe(data => {
       if (JSON.stringify(data) === JSON.stringify(this.error)){
-        this.status = 'Please upload Avatar!';
+        // this.status = 'Please upload Avatar!';
+        alert('Hãy chọn ảnh!')
       }
       if (JSON.stringify(data) === JSON.stringify(this.success)){
         // this.status = 'Change Avatar success!';
-        alert('Change Avatar success!');
+        alert('Thay đổi thành công!');
         this.tokenService.setAvatar(this.form.avatar);
         window.location.reload();
       }
     }, error => {
-      alert('Change avatar Failed!');
+      alert('Thay đổi thất bại!');
     });
   }
 

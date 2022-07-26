@@ -7,6 +7,7 @@ import {TokenService} from "../../service/token.service";
 import {Router} from "@angular/router";
 import {UserService} from "../../service/user.service";
 import {environment} from "../../../environments/environment.prod";
+import {PageEvent} from "@angular/material/paginator";
 
 @Component({
   selector: 'app-admin',
@@ -30,7 +31,7 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   this.pageCategory({page: 0, size: 10})
+   this.pagePost({page: 0, size: 3})
   }
   // ngOnInit(): void {
   //   this.postService.getAll().subscribe(result => {
@@ -44,8 +45,8 @@ export class AdminComponent implements OnInit {
 
 
 
-  pageCategory(nextPage: any){
-    this.postService.pageCategory(nextPage).subscribe(data => {
+  pagePost(nextPage: any){
+    this.postService.pagePost(nextPage).subscribe(data => {
       console.log('data ====> ', data);
       // @ts-ignore
       this.list = data['content']
@@ -56,4 +57,15 @@ export class AdminComponent implements OnInit {
     })
   }
 
+  nextPage($event: PageEvent) {
+    console.log('event ====> ', event);
+    const nextPage = {};
+    // @ts-ignore
+    nextPage['page'] = event.pageIndex.toString();
+    // @ts-ignore
+    nextPage['size'] = event.pageSize.toString();
+    // @ts-ignore
+    console.log('request[size]', nextPage['size']);
+    this.pagePost(nextPage);
+  }
 }

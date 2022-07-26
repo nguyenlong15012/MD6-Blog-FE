@@ -18,7 +18,7 @@
                 <h5 style="text-align: center" class="mb-1">{{name}}</h5>
 
                 <form class="change-avatar"  (ngSubmit)="onSubmit()">
-                  <button style="margin-left: 0px;border-color: white" class="get-started-btn">Edit Avatar</button>
+                  <button style="margin-left: 0px;border-color: white" class="get-started-btn">Thay đổi</button>
                 </form>
               </div>
 
@@ -67,7 +67,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header" style="background-color: #dc3545; color: white">
-        <h5 class="modal-title" id="exampleModalLabel">Delete confirm</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Xóa</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         <input type="hidden" [(ngModel)]="idDelete">
       </div>
@@ -75,8 +75,8 @@
         Bạn có thực sự muốn xóa bài Blog này không?
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button (click)="deletePost(idDelete)" class="btn btn-primary" data-bs-dismiss="modal">Delete</button>
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+        <button (click)="deletePost(idDelete)" class="btn btn-primary" data-bs-dismiss="modal">Xóa</button>
       </div>
     </div>
   </div>

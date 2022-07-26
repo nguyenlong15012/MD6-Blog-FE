@@ -19,6 +19,7 @@ import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { UpdateComponent } from './post/update/update.component';
 import { AdminComponent } from './admin/admin/admin.component';
 import { NavbarComponent } from './admin/navbar/navbar.component';
+import {Ng2SearchPipeModule} from "ng2-search-filter";
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { NavbarComponent } from './admin/navbar/navbar.component';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    EditorModule
+    EditorModule,
+    Ng2SearchPipeModule
   ],
   providers: [ { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }],
   bootstrap: [AppComponent]

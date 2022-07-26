@@ -7,6 +7,8 @@ import {Post} from "../../model/post";
 import {TokenService} from "../../service/token.service";
 import {Comment} from "../../model/Comment";
 import {CommentService} from "../../service/comment.service";
+import {LikePost} from "../../model/LikePost";
+import {LikePostService} from "../../service/like-post.service";
 
 @Component({
   selector: 'app-show-list-post',
@@ -19,11 +21,13 @@ export class ShowListPostComponent implements OnInit {
   post: Post;
   // @ts-ignore
   commentList: Comment[] = [];
+  likePosts: LikePost[] = [];
   checkLogin = false;
   checkDelEdit = false;
   idUser: any;
   idPost: any;
   idDelete: any;
+  totalLike: any;
   commentForm = new FormGroup({
     content : new FormControl()
   })
@@ -32,6 +36,7 @@ export class ShowListPostComponent implements OnInit {
     private postService: PostService,
     private tokenService: TokenService,
     private router: Router,
+    private likePostService: LikePostService,
     private commentService: CommentService) {
   }
 
@@ -48,6 +53,7 @@ export class ShowListPostComponent implements OnInit {
       content: '',
       user:''
     }
+    this.idUser = this.tokenService.getId();
     this.activateRoute.paramMap.subscribe((paraMap: ParamMap) => {
       const id = paraMap.get('id');
       this.idPost = id;
@@ -57,6 +63,11 @@ export class ShowListPostComponent implements OnInit {
     if (this.tokenService.getId() == this.idUser){
       this.checkDelEdit = true
     }
+
+
+    this.likePostService.getTotalLike(this.idPost).subscribe(countLike => {
+      this.totalLike = countLike;
+    });
   }
 
   getPost(id: any) {
@@ -70,6 +81,13 @@ export class ShowListPostComponent implements OnInit {
   //     console.log(data)
   //   })
   // }
+
+  likePost () {
+    this.likePostService.updateLikePost(this.idUser, this.idPost).subscribe((countLike) =>{
+      console.log(this.idUser, this.idPost)
+      this.totalLike = countLike;
+    })
+  }
 
   getComment(idPost: any) {
     this.postService.findCommentByPost(idPost).subscribe(result =>{

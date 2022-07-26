@@ -50,8 +50,4 @@ export class PostService {
     const params = nextPage;
     return this.httpClient.get(this.API_ADMIN, {params})
   }
-
-  findAllByTitleContaining(title:any): Observable<Post>{
-    return this.httpClient.get(this.API_URL+`/search?title=`+`${title}`)
-  }
 }

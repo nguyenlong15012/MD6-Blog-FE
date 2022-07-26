@@ -21,7 +21,7 @@
         </div>
         <div class="col-8">
           <button class="button1 button"><i class="far fa-thumbs-up me-2"></i> Like</button>
-          <button class="button button1"><i class="far fa-comment-dots me-2"></i> Comment</button>
+          <button class="button button1"><i class="far fa-comment-dots me-2"></i> Comment ({{commentList.length}})</button>
           <button class="button button1"><i class="fas fa-share me-2"></i> Share</button>
           <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
             <div>
@@ -31,13 +31,15 @@
                     (click)="getTimeLine(cmt.user.id)"
                     style="width: 40px;height: 40px"
                     src="{{cmt.user.avatar}}"></td>
-                  <td style="font-style: italic;font-weight: bold;width: 575px"
-                      (click)="getTimeLine(cmt.user.id)">{{cmt.user.username}}</td>
+                  <td style="font-style: italic;font-weight: bold;width: 562px; padding-top: 15px"
+                      (click)="getTimeLine(cmt.user.id)">{{cmt.user.username}} <p style="font-style: italic;font-size: 13px;color: #0b5ed7;margin-bottom: 0px">{{ cmt.time | date:'MMM-d-y, H:mm:ss' }}</p></td>
+                  <td></td>
+                  <td></td>
                 </tr>
                 <tr>
-                  <td style="background-color: rgba(245,205,181,0.91);border-radius: 10px;padding: 10px;">{{cmt.content}}</td>
-                  <td style="padding-left: 15px"><img style="margin-right: 5px;float: right; width: 15px;height: 15px" src="https://img.icons8.com/external-basicons-solid-edtgraphics/2x/external-Pen-office-stationery-basicons-solid-edtgraphics.png"></td>
-                  <td style="padding-left: 15px"><img data-bs-toggle="modal" data-bs-target="#exampleModal"
+                  <td style="background-color: rgba(245,205,181,0.91);border-radius: 10px;padding: 10px;width: 562px">{{cmt.content}}</td>
+                  <td style="text-align: right;width: 40px"><img *ngIf="cmt.user.id == idUser" style="margin-right: 5px; width: 15px;height: 15px" src="https://img.icons8.com/external-basicons-solid-edtgraphics/2x/external-Pen-office-stationery-basicons-solid-edtgraphics.png"></td>
+                  <td style="padding-left: 15px"><img *ngIf="cmt.user.id == idUser" data-bs-toggle="modal" data-bs-target="#exampleModal"
                            style="float: right; width: 15px;height: 15px" (click)="showConfirm(cmt.idComment)"
                            src="https://img.icons8.com/material-sharp/2x/filled-trash.png"></td>
                 </tr>

@@ -21,9 +21,11 @@ export class ShowListPostComponent implements OnInit {
   commentList: Comment[] = [];
   checkLogin = false;
   checkDelEdit = false;
-  idUser: any;
+  // @ts-ignore
+  idUser: '';
   idPost: any;
   idDelete: any;
+  dateObj: number = Date.now();
   commentForm = new FormGroup({
     content : new FormControl()
   })
@@ -36,6 +38,7 @@ export class ShowListPostComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.idUser = this.tokenService.getId();
     if (this.tokenService.getToken()){
       this.checkLogin = true;
     }
@@ -54,9 +57,6 @@ export class ShowListPostComponent implements OnInit {
       this.getPost(id);
       this.getComment(id);
     });
-    if (this.tokenService.getId() == this.idUser){
-      this.checkDelEdit = true
-    }
   }
 
   getPost(id: any) {

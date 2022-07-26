@@ -3,4 +3,5 @@ export interface Comment{
   content?: string;
   user?:any;
   post?:any;
+  time?:any;
 }

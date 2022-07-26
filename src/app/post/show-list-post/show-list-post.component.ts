@@ -28,6 +28,7 @@ export class ShowListPostComponent implements OnInit {
   idPost: any;
   idDelete: any;
   totalLike: any;
+  dateObj: number = Date.now();
   commentForm = new FormGroup({
     content : new FormControl()
   })
@@ -41,6 +42,7 @@ export class ShowListPostComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.idUser = this.tokenService.getId();
     if (this.tokenService.getToken()){
       this.checkLogin = true;
     }
@@ -63,8 +65,6 @@ export class ShowListPostComponent implements OnInit {
     if (this.tokenService.getId() == this.idUser){
       this.checkDelEdit = true
     }
-
-
     this.likePostService.getTotalLike(this.idPost).subscribe(countLike => {
       this.totalLike = countLike;
     });

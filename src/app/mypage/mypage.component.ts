@@ -6,6 +6,8 @@ import {PostService} from "../service/post.service";
 import {ChangeAvatar} from "../model/ChangeAvatar";
 import {AuthService} from "../service/auth.service";
 import {Router} from "@angular/router";
+import {Post} from "../model/post";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-mypage',
@@ -13,7 +15,10 @@ import {Router} from "@angular/router";
   styleUrls: ['./mypage.component.css']
 })
 export class MypageComponent implements OnInit {
-
+  listPost: Post[] = [];
+  searchForm = new FormGroup({
+    title: new FormControl('')
+  })
   form: any = {};
   // @ts-ignore
   changeAvagtar: ChangeAvatar;
@@ -30,6 +35,8 @@ export class MypageComponent implements OnInit {
   avatar: any;
   list: any;
   idDelete: any;
+  checkLogin = false;
+
   constructor(private httpClient: HttpClient,
               private authService: AuthService,
               private router: Router,
@@ -42,6 +49,19 @@ export class MypageComponent implements OnInit {
     this.getAllPostByUser(this.tokenService.getId());
     this.avatar = this.tokenService.getAvatar();
     this.name = this.tokenService.getName();
+    this.postService.findAllPublicStatus().subscribe(result => {
+      // @ts-ignore
+      this.list = result;
+      console.log(result);
+    }, error => {
+      console.log(error)
+    });
+    if (this.tokenService.getToken()){
+      this.checkLogin = true;
+      this.name = this.tokenService.getName();
+      this.avatar = this.tokenService.getAvatar();
+      console.log('avatar   ====> ', this.avatar);
+    }
   }
 
   getAllPostByUser(id: any) {
@@ -87,5 +107,15 @@ export class MypageComponent implements OnInit {
 
   onUploadAvatar($event: any) {
     this.form.avatar = $event;
+  }
+  search() {
+    this.postService.findAllByTitleContaining(this.searchForm.value.title).subscribe((data)=> {
+      // @ts-ignore
+      this.list=data;
+      console.log(data)
+    })
+  }
+  logOut(){
+    this.tokenService.logOut()
   }
 }

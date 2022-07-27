@@ -55,13 +55,9 @@ export class LoginComponent implements OnInit {
         this.router.navigate([''])
         this.tokenService.setRole(data.roles);
         if (data.roles[0].authority == "ADMIN"){
-          this.router.navigate([this.adminUrl]).then(()  => {
-            window.location.reload();
-          });
+          this.router.navigate([this.adminUrl]);
         }else {
-          this.router.navigate([this.returnUrl]).then(() => {
-            window.location.reload();
-          })
+          this.router.navigate([this.returnUrl]);
         }
       }
     });

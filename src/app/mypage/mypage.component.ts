@@ -6,6 +6,8 @@ import {PostService} from "../service/post.service";
 import {ChangeAvatar} from "../model/ChangeAvatar";
 import {AuthService} from "../service/auth.service";
 import {Router} from "@angular/router";
+import {PageEvent} from "@angular/material/paginator";
+import {Post} from "../model/post";
 
 @Component({
   selector: 'app-mypage',
@@ -29,6 +31,8 @@ export class MypageComponent implements OnInit {
   name: string;
   avatar: any;
   list: any;
+  list1: Post[] = [];
+  totalElements: number = 0;
   idDelete: any;
   constructor(private httpClient: HttpClient,
               private authService: AuthService,
@@ -39,6 +43,7 @@ export class MypageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.pagePost({page: 0, size: 10})
     this.getAllPostByUser(this.tokenService.getId());
     this.avatar = this.tokenService.getAvatar();
     this.name = this.tokenService.getName();
@@ -87,5 +92,30 @@ export class MypageComponent implements OnInit {
 
   onUploadAvatar($event: any) {
     this.form.avatar = $event;
+  }
+
+
+  //Phân trang
+  pagePost(nextPage: any){
+    this.postService.pagePost(nextPage).subscribe(data => {
+      console.log('data ====> ', data);
+      // @ts-ignore
+      this.list1 = data['content']
+      // @ts-ignore
+      console.log('data[content]', data['content']);
+      // @ts-ignore
+      this.totalElements = data['totalElements'];
+    })
+  }
+  nextPage(event: PageEvent) {
+    console.log('event ====> ', event);
+    const nextPage = {};
+    // @ts-ignore
+    nextPage['page'] = event.pageIndex.toString();
+    // @ts-ignore
+    nextPage['size'] = event.pageSize.toString();
+    // @ts-ignore
+    console.log('request[size]', nextPage['size']);
+    this.pagePost(nextPage);
   }
 }

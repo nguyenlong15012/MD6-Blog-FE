@@ -15,10 +15,11 @@ import {PageEvent} from "@angular/material/paginator";
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  list: Post[] = [];
+
   searchForm = new FormGroup({
     name: new FormControl('')
   })
+  list: Post[] = [];
   totalElements: number = 0;
 
 
@@ -31,7 +32,7 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   this.pagePost({page: 0, size: 3})
+   this.pagePost({page: 0, size: 10})
   }
   // ngOnInit(): void {
   //   this.postService.getAll().subscribe(result => {

@@ -10,11 +10,11 @@ import {environment} from "../../../environments/environment.prod";
 import {PageEvent} from "@angular/material/paginator";
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  selector: 'app-admin-post',
+  templateUrl: './admin-post.component.html',
+  styleUrls: ['./admin-post.component.css']
 })
-export class AdminComponent implements OnInit {
+export class AdminPostComponent implements OnInit {
   list: Post[] = [];
   searchForm = new FormGroup({
     title: new FormControl('')

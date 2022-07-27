@@ -39,7 +39,7 @@ import { ChangeAvatarComponent } from './form-login/change-avatar/change-avatar.
 import {Ng2SearchPipeModule} from "ng2-search-filter";
 import {httpInterceptorProviders} from "./security/auth.interceptor";
 import {MatPaginatorModule} from "@angular/material/paginator";
-import { AdminPostComponent } from './admin/admin-post/admin-post.component';
+import {AdminPostComponent} from "./admin/admin-post/admin-post.component";
 @NgModule({
   declarations: [
     AppComponent,

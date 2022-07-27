@@ -6,6 +6,7 @@ import {PostService} from "../../service/post.service";
 import {TokenService} from "../../service/token.service";
 import {Router} from "@angular/router";
 import {UserService} from "../../service/user.service";
+import {User} from "../../model/User";
 
 @Component({
   selector: 'app-admin',
@@ -13,40 +14,30 @@ import {UserService} from "../../service/user.service";
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  list: Post[] = [];
+  list: any;
   searchForm = new FormGroup({
-    name: new FormControl('')
+    title: new FormControl('')
   })
-
+  idDelete: any;
   constructor(private httpClient: HttpClient,
               private postService: PostService,
               private tokenService: TokenService,
               private router: Router,
               private userService: UserService) {
+
   }
 
   ngOnInit(): void {
     this.postService.getAll().subscribe(result => {
-      // @ts-ignore
       this.list = result;
       console.log(result);
     }, error => {
       console.log(error)
     });
-    // this.postService.getAll().subscribe(result => {
-    //   this.list = result;
-    //   console.log(result);
-    // }, error => {
-    //   console.log(error)
-    // });
   }
-
-  // getTimeLine(id: any) {
-  //   if (id == this.tokenService.getId()) {
-  //     this.router.navigate(['/my-page'])
-  //   } else {
-  //     this.router.navigate(['/friend-page/'+id]);
-  //   }
+  // showConfirm(id: any){
+  //   this.idDelete = id
+  //   // @ts-ignore
+  //   $('#exampleModal').modal('show');
   // }
-
 }

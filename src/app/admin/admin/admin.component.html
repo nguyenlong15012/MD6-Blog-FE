@@ -1,20 +1,10 @@
 <app-navbar></app-navbar>
-<section id="hero" class="d-flex justify-content-center align-items-center">
-  <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-    <h1>Chào mừng bạn đến với BLOG K</h1>
-    <h2>Hãy chia sẻ những điều thú vị</h2>
-    <a routerLink="create" class="btn-get-started">BẮT ĐẦU</a>
-  </div>
-</section>
 <main id="main">
-  <div class="breadcrumbs" data-aos="fade-in">
-    <div class="container">
-      <h2>Trang Chủ</h2>
-      <p>Vết thương không lành theo cách chúng ta muốn, chúng lành theo cách chúng cần. Cần có thời gian để vết thương mờ dần thành sẹo. Cần có thời gian để quá trình chữa bệnh diễn ra. Hãy cho bản thân thời gian đó. Hãy nhẹ nhàng với vết thương của bạn. Hãy nhẹ nhàng với trái tim của bạn. Bạn xứng đáng được chữa lành</p>
+  <section id="events" class="events">
+    <div style="text-align: center;padding: 15px;margin-top: 15px; background-color: #0dcaf0">
+      <h4 style="text-align: center;margin-bottom: 0px;">QUẢN LÝ BLOG</h4>
     </div>
-  </div>
-  <section id="events" class="events" >
-    <div class="container" data-aos="fade-up">
+    <div class="container" data-aos="fade-up" style="margin-top: 15px">
 
       <div class="row" >
         <div class="col-md-6 d-flex align-items-stretch"  *ngFor = "let item of list">
@@ -22,8 +12,11 @@
             <div class="card-img">
               <img src="/assets/img/events-1.jpg" alt="...">
             </div>
-            <a  class="card-body">
-              <h5  class="card-title"  routerLink="/list-post/{{item.idPost}}">{{item.title}}</h5>
+            <a  class="card-body" >
+<!--              <img data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="showConfirm(item.idPost)" style="float: right; width: 20px;height: 20px" src="https://img.icons8.com/material-sharp/2x/filled-trash.png">-->
+<!--              <img routerLink="/update/{{item.idPost}}" style="margin-right: 5px;float: right; width: 20px;height: 20px" src="https://img.icons8.com/external-basicons-solid-edtgraphics/2x/external-Pen-office-stationery-basicons-solid-edtgraphics.png">-->
+              <p>{{item.user.name}}</p>
+              <h5  class="card-title" routerLink="/list-post/{{item.idPost}}">{{item.title}}</h5>
               <p class="fst-italic text-center">{{item.createAt}}</p>
               <p class="card-text">{{item.description}}</p>
             </a>
@@ -32,5 +25,28 @@
       </div>
     </div>
   </section>
+
 </main>
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<app-footer></app-footer>
+
+
+<!-- Modal -->
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--  <div class="modal-dialog">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header" style="background-color: #dc3545; color: white">-->
+<!--        <h5 class="modal-title" id="exampleModalLabel">Delete confirm</h5>-->
+<!--        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--        <input type="hidden" [(ngModel)]="idDelete">-->
+<!--      </div>-->
+<!--      <div class="modal-body">-->
+<!--        Bạn có thực sự muốn xóa bài Blog này không?-->
+<!--      </div>-->
+<!--      <div class="modal-footer">-->
+<!--        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+<!--        <button (click)="deletePost(idDelete)" class="btn btn-primary" data-bs-dismiss="modal">Delete</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

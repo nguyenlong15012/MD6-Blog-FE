@@ -19,6 +19,9 @@ import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { UpdateComponent } from './post/update/update.component';
 import { AdminComponent } from './admin/admin/admin.component';
 import { NavbarComponent } from './admin/navbar/navbar.component';
+import { AdminUserComponent } from './admin/admin-user/admin-user.component';
+import { AdminDetailComponent } from './admin/admin-detail/admin-detail.component';
+import { AdminUpdateComponent } from './admin/admin-update/admin-update.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +37,9 @@ import { NavbarComponent } from './admin/navbar/navbar.component';
     UpdateComponent,
     AdminComponent,
     NavbarComponent,
+    AdminUserComponent,
+    AdminDetailComponent,
+    AdminUpdateComponent,
   ],
   imports: [
     FormsModule,

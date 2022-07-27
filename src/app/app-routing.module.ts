@@ -9,6 +9,7 @@ import {MypageComponent} from "./mypage/mypage.component";
 import {FriendPageComponent} from "./friend-page/friend-page.component";
 import {UpdateComponent} from "./post/update/update.component";
 import {AdminComponent} from "./admin/admin/admin.component";
+import {AdminUserComponent} from "./admin/admin-user/admin-user.component";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent, data: {title: "Login"}},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: "my-page", component: MypageComponent},
   {path: "friend-page/:id", component: FriendPageComponent},
   {path: "update/:id", component: UpdateComponent},
+  {path: "admin-user", component: AdminUserComponent},
   {path: 'admin', component: AdminComponent, data: {title: 'Dashboard'}},
 ];
 

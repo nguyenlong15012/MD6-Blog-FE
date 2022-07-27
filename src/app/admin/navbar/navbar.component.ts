@@ -9,6 +9,8 @@ import {TokenService} from "../../service/token.service";
 export class NavbarComponent implements OnInit {
 //@ts-ignore
   name: string;
+  //@ts-ignore
+  avatar: string;
   checkLogin = false;
   constructor(private tokenService: TokenService
   ) { }
@@ -17,8 +19,8 @@ export class NavbarComponent implements OnInit {
     if (this.tokenService.getToken()){
       this.checkLogin = true;
       this.name = this.tokenService.getName();
-      // this.avatar = this.tokenService.getAvatar();
-      // console.log('avatar   ====> ', this.avatar);
+      this.avatar = this.tokenService.getAvatar();
+      console.log('avatar   ====> ', this.avatar);
     }
   }
 

@@ -5,9 +5,10 @@ import {TokenService} from "../service/token.service";
 import {PostService} from "../service/post.service";
 import {ChangeAvatar} from "../model/ChangeAvatar";
 import {AuthService} from "../service/auth.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {PageEvent} from "@angular/material/paginator";
+import {Router} from "@angular/router";
 import {Post} from "../model/post";
+import {FormControl, FormGroup} from "@angular/forms";
+import {PageEvent} from "@angular/material/paginator";
 
 @Component({
   selector: 'app-mypage',
@@ -15,7 +16,10 @@ import {Post} from "../model/post";
   styleUrls: ['./mypage.component.css']
 })
 export class MypageComponent implements OnInit {
-
+  listPost: Post[] = [];
+  searchForm = new FormGroup({
+    title: new FormControl('')
+  })
   form: any = {};
   // @ts-ignore
   changeAvagtar: ChangeAvatar;
@@ -34,14 +38,13 @@ export class MypageComponent implements OnInit {
   list1: Post[] = [];
   totalElements: number = 0;
   idDelete: any;
-
+  checkLogin = false;
   constructor(private httpClient: HttpClient,
               private authService: AuthService,
               private router: Router,
               private userService: UserService,
               private tokenService: TokenService,
-              private postService: PostService,
-              private activatedRoute : ActivatedRoute) {
+              private postService: PostService) {
   }
   id:any =this.tokenService.getId()
 
@@ -50,7 +53,19 @@ export class MypageComponent implements OnInit {
     this.getAllPostByUser(this.tokenService.getId());
     this.avatar = this.tokenService.getAvatar();
     this.name = this.tokenService.getName();
-    // this.pagePost(this.tokenService.getId());
+    this.postService.findAllPublicStatus().subscribe(result => {
+      // @ts-ignore
+      this.list = result;
+      console.log(result);
+    }, error => {
+      console.log(error)
+    });
+    if (this.tokenService.getToken()){
+      this.checkLogin = true;
+      this.name = this.tokenService.getName();
+      this.avatar = this.tokenService.getAvatar();
+      console.log('avatar   ====> ', this.avatar);
+    }
   }
 
   getAllPostByUser(id: any) {
@@ -116,5 +131,15 @@ export class MypageComponent implements OnInit {
     };
     console.log('request[size]', nextPage['size']);
     this.pagePost(nextPage);
+  }
+  search() {
+    this.postService.findAllByTitleContaining(this.searchForm.value.title).subscribe((data)=> {
+      // @ts-ignore
+      this.list=data;
+      console.log(data)
+    })
+  }
+  logOut(){
+    this.tokenService.logOut()
   }
 }

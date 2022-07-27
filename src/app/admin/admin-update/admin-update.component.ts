@@ -72,7 +72,7 @@ export class AdminUpdateComponent implements OnInit {
     }
 
     this.postService.update(this.obj,this.id).subscribe(()=>{
-      this.router.navigate(["/my-page"])
+      this.router.navigate(["/admin"])
     }, error => {
       alert('Lỗi');
     })

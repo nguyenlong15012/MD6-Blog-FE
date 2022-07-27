@@ -38,7 +38,7 @@
   <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
     <h1>Chào mừng bạn đến với BLOG K</h1>
     <h2>Hãy chia sẻ những điều thú vị</h2>
-    <a routerLink="create" class="btn-get-started">BẮT ĐẦU</a>
+    <a *ngIf="checkLogin" routerLink="create" class="btn-get-started">BẮT ĐẦU</a>
   </div>
 </section>
 

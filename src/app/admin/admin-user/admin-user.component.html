@@ -1,0 +1,27 @@
+<app-navbar></app-navbar><br><br><br><br>
+    <div style="text-align: center;padding: 15px;margin-top: 15px; background-color: #0dcaf0">
+      <h4 style="text-align: center;margin-top: 10px;">QUẢN LÝ NGƯỜI DÙNG</h4>
+    </div>
+<br>
+<br>
+<body>
+<div class="container">
+  <table class="table" >
+    <thead>
+    <tr style="background-color: #20c997">
+      <th><h3>Ảnh đại diện</h3></th>
+      <th><h3>Tên</h3></th>
+      <th><h3>Email</h3></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="success" *ngFor = "let user of listUser" >
+      <td><img style="border-radius: 50px;height: 60px;width: 60px" src="{{user.avatar}}"></td>
+      <td><h5>{{user.name}}</h5></td>
+      <td><h5>{{user.email}}</h5></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+

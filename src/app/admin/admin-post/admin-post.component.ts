@@ -15,14 +15,12 @@ import {PageEvent} from "@angular/material/paginator";
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-
-  searchForm = new FormGroup({
-    name: new FormControl('')
-  })
   list: Post[] = [];
+  searchForm = new FormGroup({
+    title: new FormControl('')
+  })
+  idDelete: any;
   totalElements: number = 0;
-
-
 
   constructor(private httpClient: HttpClient,
               private postService: PostService,
@@ -32,8 +30,21 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.postService.getAll().subscribe(result => {
+      this.list = result;
+      console.log(result);
+    }, error => {
+      console.log(error)
+    });
    this.pagePost({page: 0, size: 10})
   }
+  // showConfirm(id: any){
+  //   this.idDelete = id
+  //   // @ts-ignore
+  //   $('#exampleModal').modal('show');
+  // }
+  //  this.pagePost({page: 0, size: 3})
+  // }
   // ngOnInit(): void {
   //   this.postService.getAll().subscribe(result => {
   //     // @ts-ignore
@@ -46,7 +57,7 @@ export class AdminComponent implements OnInit {
 
 
 
-    pagePost(nextPage: any){
+  pagePost(nextPage: any){
     this.postService.pagePost(nextPage).subscribe(data => {
       console.log('data ====> ', data);
       // @ts-ignore
@@ -57,7 +68,7 @@ export class AdminComponent implements OnInit {
       this.totalElements = data['totalElements'];
     })
   }
-    nextPage(event: PageEvent) {
+  nextPage(event: PageEvent) {
     console.log('event ====> ', event);
     const nextPage = {};
     // @ts-ignore

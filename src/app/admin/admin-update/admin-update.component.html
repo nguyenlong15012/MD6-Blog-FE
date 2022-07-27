@@ -1,11 +1,4 @@
-
-<app-header></app-header>
-<div class="breadcrumbs" data-aos="fade-in">
-  <div class="container">
-    <h2>Tạo Blog để chia sẻ tới mọi người</h2>
-    <p>Nếu chỉ đọc những cuốn sách người khác đã đọc, bạn sẽ chỉ biết những điều người khác đã biết</p>
-  </div>
-</div>
+<app-navbar></app-navbar><br><br><br><br>
 <form [formGroup]="form" (submit)="update()">
   <h4>Tiêu đề :</h4>
   <input formControlName = "title" class="input1">
@@ -16,7 +9,7 @@
   <h4>Nhãn :</h4>
   <input formControlName="tag" class="input1">
   <div><br></div>
-  <h4> Chế dộ xem :
+  <h4> Đối tượng :
     <select style="margin-left: 20px">
       <option >Chỉ mình tôi</option>
       <option >Mọi người</option>

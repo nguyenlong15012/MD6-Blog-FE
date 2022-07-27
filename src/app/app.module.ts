@@ -17,8 +17,10 @@ import {MypageComponent} from "./mypage/mypage.component";
 import {FriendPageComponent} from "./friend-page/friend-page.component";
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { UpdateComponent } from './post/update/update.component';
-import { AdminComponent } from './admin/admin/admin.component';
 import { NavbarComponent } from './admin/navbar/navbar.component';
+import { AdminUserComponent } from './admin/admin-user/admin-user.component';
+import { AdminDetailComponent } from './admin/admin-detail/admin-detail.component';
+import { AdminUpdateComponent } from './admin/admin-update/admin-update.component';
 import {UploadAvatarComponent} from "./upload/upload-avatar/upload-avatar.component";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFireModule} from "@angular/fire/compat";
@@ -34,10 +36,10 @@ import {MatRadioModule} from "@angular/material/radio";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { ChangeAvatarComponent } from './form-login/change-avatar/change-avatar.component';
-
 import {Ng2SearchPipeModule} from "ng2-search-filter";
 import {httpInterceptorProviders} from "./security/auth.interceptor";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import { AdminPostComponent } from './admin/admin-post/admin-post.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,10 +53,13 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     MypageComponent,
     FriendPageComponent,
     UpdateComponent,
-    AdminComponent,
     NavbarComponent,
+    AdminUserComponent,
+    AdminDetailComponent,
+    AdminUpdateComponent,
     UploadAvatarComponent,
-    ChangeAvatarComponent
+    ChangeAvatarComponent,
+    AdminPostComponent
   ],
   imports: [
     FormsModule,

@@ -2,7 +2,7 @@
 <header id="header" class="fixed-top">
   <div  class="container d-flex align-items-center">
 
-    <h1 class="logo me-auto"><a  routerLink="">Dashboard</a></h1>
+    <h1 class="logo me-auto"><a  style="text-decoration: none" routerLink="">Dashboard</a></h1>
     <nav id="navbar" class="navbar order-last order-lg-0">
       <ul>
 <!--        <li><a class="active" style="text-decoration: none" routerLink="">Bài Viết</a></li>-->
@@ -23,10 +23,10 @@
       </form>
 
     </nav><!-- .navbar -->
-    <a *ngIf="checkLogin" style="text-decoration: none" style="text-decoration: none" routerLink="/my-page" class="get-started-btn">{{name}}</a>
+    <a *ngIf="checkLogin" style="text-decoration: none" style="text-decoration: none" class="get-started-btn">{{name}}</a>
     <a *ngIf="checkLogin" style="color: springgreen; text-decoration: none;"
        aria-label="Angular Audio Player"
-       mat-button tabindex="0" aria-disabled="false" routerLink="/my-page">
+       mat-button tabindex="0" aria-disabled="false" >
     <span class="mat-button-wrapper">
       <img  style="border-radius: 50%" src="" alt="angular" class="image-change" [src]=avatar width="40px" height="40px"></span>
       <div class="mat-button-ripple mat-ripple" matripple=""></div>

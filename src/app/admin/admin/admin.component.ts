@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Post} from "../../model/post";
 import {FormControl, FormGroup} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
@@ -45,7 +45,7 @@ export class AdminComponent implements OnInit {
 
 
 
-  pagePost(nextPage: any){
+    pagePost(nextPage: any){
     this.postService.pagePost(nextPage).subscribe(data => {
       console.log('data ====> ', data);
       // @ts-ignore
@@ -56,8 +56,7 @@ export class AdminComponent implements OnInit {
       this.totalElements = data['totalElements'];
     })
   }
-
-  nextPage($event: PageEvent) {
+    nextPage(event: PageEvent) {
     console.log('event ====> ', event);
     const nextPage = {};
     // @ts-ignore

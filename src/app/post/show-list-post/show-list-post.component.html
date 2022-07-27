@@ -20,9 +20,9 @@
         <div class="col-2">
         </div>
         <div class="col-8">
-          <button class="button1 button" (click)="likePost()"><i class="far fa-thumbs-up me-2"></i> Like {{totalLike}}</button>
-          <button class="button button1"><i class="far fa-comment-dots me-2"></i> Comment ({{commentList.length}})</button>
-          <button class="button button1"><i class="fas fa-share me-2"></i> Share</button>
+          <button class="button1 button" (click)="likePost()"><i class="far fa-thumbs-up me-2"></i> Thích {{totalLike}}</button>
+          <button class="button button1"><i class="far fa-comment-dots me-2"></i> Bình luận ({{commentList.length}})</button>
+          <button class="button button1"><i class="fas fa-share me-2"></i> Chia sẻ</button>
           <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
             <div>
               <table *ngFor="let cmt of commentList">
@@ -47,16 +47,16 @@
             </div>
             <form class="d-flex flex-start w-100" [formGroup]="commentForm" (ngSubmit)="createCmt(post.idPost)">
               <div style="float: right;width: 100%;padding-top: 15px" class="">
-                <textarea placeholder="Comment here.." class="form-control"
+                <textarea placeholder="Viết bình luận..." class="form-control"
                           rows="4" formControlName="content"
                           style="background: #fff; height: 50px; width: 704px;border-radius: 10px"></textarea>
                 <br>
                 <div class="float-end mt-2 pt-1">
                   <button style="border-color: white;margin-right: 5px;background-color: lightgrey;color: black"
-                          class="get-started-btn">Comment
+                          class="get-started-btn">Bình luận
                   </button>
                   <button style="border-color: white;background-color: lightgrey;color: black;margin-left: 10px"
-                          class="get-started-btn" (click)="clearForm()">Cancel
+                          class="get-started-btn" (click)="clearForm()">Hủy
                   </button>
                 </div>
               </div>
@@ -98,7 +98,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header" style="background-color: #dc3545; color: white">
-        <h5 class="modal-title" id="exampleModalLabel">Delete confirm</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         <input type="hidden" >
       </div>
@@ -106,8 +106,8 @@
         Bạn có thực sự muốn xóa bài bình luận này không?
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button (click)="deleteCmt(idDelete)" type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button>
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+        <button (click)="deleteCmt(idDelete)" type="button" class="btn btn-primary" data-bs-dismiss="modal">Xóa</button>
       </div>
     </div>
   </div>

@@ -19,7 +19,7 @@ export class ChangeAvatarComponent implements OnInit {
   success: any = {
     message: 'yes'
   };
-  status = 'Please choose an image and click upload';
+  status = 'Chọn ảnh để tải lên';
 
   constructor(private authService: AuthService,
               private tokenService: TokenService,
@@ -36,15 +36,15 @@ export class ChangeAvatarComponent implements OnInit {
 
     this.authService.changeAvatar(this.changeAvagtar).subscribe(data => {
       if (JSON.stringify(data) === JSON.stringify(this.error)){
-        this.status = 'Please upload Avatar!';
+        this.status = 'Vui lòng chọn ảnh!';
       }
       if (JSON.stringify(data) === JSON.stringify(this.success)){
-        this.status = 'Change Avatar success!';
+        this.status = 'Upload thành công!';
         this.tokenService.setAvatar(this.form.avatar);
         window.location.reload();
       }
     }, error => {
-      alert('Change avatar Failed!');
+      alert('Upload thất bại!');
     });
   }
 

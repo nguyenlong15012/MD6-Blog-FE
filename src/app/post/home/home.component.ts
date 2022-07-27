@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   name: string;
   //@ts-ignore
   avatar: string;
+  checkAuth = true;
   checkLogin = false;
   constructor(private httpClient: HttpClient,
               private postService: PostService,
@@ -30,7 +31,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // // @ts-ignore
+    // if (0 === this.tokenService.getRole()){
+    //   this.checkAuth = true;
+    // }
     this.postService.findAllPublicStatus().subscribe(result => {
+      console.log('role ----> ', this.tokenService.getRole());
         // @ts-ignore
       this.list = result;
         console.log(result);

@@ -11,7 +11,6 @@
   <section id="about" class="about">
     <div class="container" data-aos="fade-up">
       <div class="row">
-        <a style="color: blue;font-style:italic ">#{{post.tag}}</a>
         <h2>{{post.title}}</h2>
         <p><i class="bi bi-alarm-fill"></i> Thời gian : {{post.createAt}}</p>
         <p><i class="bi bi-pencil-fill"></i> Mô tả : {{post.description}}</p>
@@ -91,18 +90,19 @@
   class="bi bi-arrow-up-short"></i></a>
 <app-footer></app-footer>
 <style>.button {
+  width: 241px;
   border: none;
   color: black;
-  /*padding: 11px 40px;*/
+  padding: 11px 40px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
+  font-size: 16px;
+  margin: 4px 2px;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   cursor: pointer;
   border-radius: 1px;
-  background-color: #f8f9fa;
 }
 
 .button1:hover {

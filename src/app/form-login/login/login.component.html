@@ -15,44 +15,44 @@
                 </div>
 
                 <form [formGroup]="loginForm" (ngSubmit)="ngSubmit()" novalidate>
-                  <p>Please login to your account</p>
+                  <p>Vui lòng đăng nhập vào tài khoản của bạn</p>
                   <div class="form-outline mb-4">
-                    <label class="form-label" for="form2Example11">Username</label>
+                    <label class="form-label" for="form2Example11">Tên đăng nhập</label>
                     <input type="email" [(ngModel)]="form.username" id="form2Example11" class="form-control"
                            placeholder="" formControlName="username"/>
                     <div *ngIf="!username?.valid && username?.touched">
                       <div [hidden]="!username?.errors?.['required']">
-                        <p style="color: red">Username is not required</p>
+                        <p style="color: red">Không được để trống ô này!</p>
                       </div>
                     </div>
                   </div>
 
 
                   <div class="form-outline mb-4">
-                    <label class="form-label" for="form2Example22">Password</label>
+                    <label class="form-label" for="form2Example22">Mật khẩu</label>
                     <input type="password" [(ngModel)]="form.password" id="form2Example22" class="form-control" formControlName="password" />
 
                     <div *ngIf="!password?.valid && password?.touched">
                       <div [hidden]="!password?.errors?.['required']">
-                        <p style="color: red">Password is not required!</p>
+                        <p style="color: red">Không được để trống ô này!</p>
                       </div>
                       <div [hidden]="!password?.errors?.['minlength']">
-                        <p style="color: red">Password min length is 6!</p>
+                        <p style="color: red">Độ dài mật khẩu tối thiểu 6 ký tự!</p>
                       </div>
                       <div [hidden]="!password?.errors?.['maxlength']">
-                        <p style="color: red">Password max length is 8!</p>
+                        <p style="color: red">Độ dài mật khẩu tối đa 8 ký tự!</p>
                       </div>
                     </div>
                   </div>
 
                   <div class="text-center pt-1 mb-5 pb-1">
-                    <button [disabled]="!loginForm.valid" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3">Log in</button>
-                    <a class="text-muted" href="#!">Forgot password?</a>
+                    <button [disabled]="!loginForm.valid" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3">Đăng nhập</button>
+                    <a class="text-muted" href="#!">Quên mật khẩu?</a>
                   </div>
 
                   <div class="d-flex align-items-center justify-content-center pb-4">
-                    <p class="mb-0 me-2">Don't have an account?</p>
-                    <button routerLink="/register" type="button" class="btn btn-outline-danger">Sign up</button>
+                    <p class="mb-0 me-2">Chưa có tài khoản?</p>
+                    <button routerLink="/register" type="button" class="btn btn-outline-danger">Đăng ký</button>
                   </div>
                 </form>
               </div>

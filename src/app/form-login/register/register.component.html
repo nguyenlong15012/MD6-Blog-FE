@@ -8,23 +8,23 @@
         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
           <div class="card" style="border-radius: 15px;">
             <div class="card-body p-5">
-              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+              <h2 class="text-uppercase text-center mb-5">Tạo tài khoản</h2>
               <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example1cg">Your Name</label>
+                  <label class="form-label" for="form3Example1cg">Họ tên</label>
                   <input type="text" name="name" [(ngModel)]="form.name" id="form3Example1cg" class="form-control form-control-lg" formControlName="name"/>
                   <div *ngIf="!name?.valid && name?.touched">
                     <div [hidden]="!name?.errors?.['required']">
-                      <p style="color: red">Name is not required</p>
+                      <p style="color: red">Không được để trống ô này!</p>
                     </div>
                   </div>
                   <div class=" form-outline mb-4">
-                    <label class="form-label" for="form3Example1cg">Username</label>
+                    <label class="form-label" for="form3Example1cg">Tên đăng nhập</label>
                     <input type="text" id="" name="username" [(ngModel)]="form.username"
                            class="form-control form-control-lg" formControlName="username"/>
                     <div *ngIf="!username?.valid && username?.touched">
                       <div [hidden]="!username?.errors?.['required']">
-                        <p style="color: red">Username is not required</p>
+                        <p style="color: red">Không được để trống ô này!</p>
                       </div>
                     </div>
                   </div>
@@ -39,58 +39,58 @@
                   <!--                      <p style="color: red">Email was wrong syntax</p>-->
                   <!--                    </div>-->
                   <!--                  </div>-->
-                  <label class="form-label" for="form3Example3cg">Your Email</label>
+                  <label class="form-label" for="form3Example3cg">Email</label>
                   <input type="email" [(ngModel)]="form.email" id="form3Example3cg" class="form-control form-control-lg"
                          formControlName="email"/>
                   <div *ngIf="!email?.valid && email?.touched">
                     <div [hidden]="!email?.errors?.['required']">
-                      <p style="color: red">Email is not required</p>
+                      <p style="color: red">Không được để trống ô này!</p>
                     </div>
                     <div [hidden]="!email?.errors?.['email']">
-                      <p style="color: red">Email was wrong syntax</p>
+                      <p style="color: red">Email sai định dạng</p>
                     </div>
                   </div>
                 </div>
 
                 <div class="form-outline mb-4">
 
-                  <label class="form-label" for="form3Example4cg">Password</label>
+                  <label class="form-label" for="form3Example4cg">Mật khẩu</label>
                   <input type="password" [(ngModel)]="form.password" id="form3Example4cg"
                          class="form-control form-control-lg" formControlName="password"/>
                   <div *ngIf="!password?.valid && password?.touched">
                     <div [hidden]="!password?.errors?.['required']">
-                      <p style="color: red">Password is not required!</p>
+                      <p style="color: red">Không được để trống ô này!</p>
                     </div>
                     <div [hidden]="!password?.errors?.['minlength']">
-                      <p style="color: red">Password min length is 6!</p>
+                      <p style="color: red">Độ dài mật khẩu tối thiểu 6 ký tự!</p>
                     </div>
                     <div [hidden]="!password?.errors?.['maxlength']">
-                      <p style="color: red">Password max length is 8!</p>
+                      <p style="color: red">Độ dài mật khẩu tối thiểu 6 ký tự!</p>
                     </div>
                   </div>
                 </div>
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                  <label class="form-label" for="form3Example4cdg">Nhập lại mật khẩu</label>
                   <input type="password" id="form3Example4cdg" class="form-control form-control-lg"
                          formControlName="confirmPassword" pattern="{{password?.value}}"/>
                   <div *ngIf="!confirmPassword?.valid && confirmPassword?.touched">
                     <div [hidden]="!confirmPassword?.errors?.['required']">
-                      <p style="color: red">Confirmpassword is not required!</p>
+                      <p style="color: red">Không được để trống ô này!</p>
                     </div>
                     <div [hidden]="!confirmPassword?.errors?.['pattern']">
-                      <p style="color: red">Password is fault!</p>
+                      <p style="color: red">Mật khẩu không khớp</p>
                     </div>
                   </div>
                 </div>
 
                 <div class="d-flex justify-content-center">
                   <button [disabled]="!registerForm.valid"
-                          class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register
+                          class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Đăng ký
                   </button>
                 </div>
-                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a routerLink="/login"
-                                                                                        class="fw-bold text-body"><u>Login
-                  here</u></a></p>
+                <p class="text-center text-muted mt-5 mb-0">Đã có tài khoản? <a routerLink="/login"
+                                                                                        class="fw-bold text-body"><u>Đăng nhập tại đây
+                  </u></a></p>
               </form>
             </div>
           </div>

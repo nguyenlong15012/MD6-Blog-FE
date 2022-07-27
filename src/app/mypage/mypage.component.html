@@ -54,6 +54,11 @@
           </div>
         </div>
       </div>
+      <mat-paginator [length]="totalElements"
+                     [pageSizeOptions]="[3, 6, 9, 15]"
+                     aria-label="Select page"
+                     (page)="nextPage($event)">
+      </mat-paginator>
     </div>
   </section><!-- End Events Section -->
 
@@ -80,4 +85,5 @@
       </div>
     </div>
   </div>
+
 </div>

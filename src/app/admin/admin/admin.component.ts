@@ -15,10 +15,11 @@ import {PageEvent} from "@angular/material/paginator";
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  list: Post[] = [];
+
   searchForm = new FormGroup({
     name: new FormControl('')
   })
+  list: Post[] = [];
   totalElements: number = 0;
 
 

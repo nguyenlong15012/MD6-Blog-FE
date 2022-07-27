@@ -20,7 +20,9 @@ export class AdminPostComponent implements OnInit {
   })
   idDelete: any;
   totalElements: number = 0;
-
+//@ts-ignore
+  name: string;
+  checkLogin = false;
   constructor(private httpClient: HttpClient,
               private postService: PostService,
               private tokenService: TokenService,
@@ -36,23 +38,13 @@ export class AdminPostComponent implements OnInit {
     }, error => {
       console.log(error)
     });
+    if (this.tokenService.getToken()){
+      this.checkLogin = true;
+      this.name = this.tokenService.getName();
+      // this.avatar = this.tokenService.getAvatar();
+      // console.log('avatar   ====> ', this.avatar);
+    }
   }
-  // showConfirm(id: any){
-  //   this.idDelete = id
-  //   // @ts-ignore
-  //   $('#exampleModal').modal('show');
-  // }
-  //  this.pagePost({page: 0, size: 3})
-  // }
-  // ngOnInit(): void {
-  //   this.postService.getAll().subscribe(result => {
-  //     // @ts-ignore
-  //     this.list = result;
-  //     console.log(result);
-  //   }, error => {
-  //     console.log(error)
-  //   });
-  // }
 
 
 
@@ -78,5 +70,15 @@ export class AdminPostComponent implements OnInit {
     console.log('request[size]', nextPage['size']);
     this.pagePost(nextPage);
   }
-
+  search() {
+    this.postService.findAllByTitleContaining(this.searchForm.value.title).subscribe((data)=> {
+      // @ts-ignore
+      this.list=data;
+      console.log(data)
+    })
+  }
+  logOut(){
+    this.tokenService.logOut();
+    this.router.navigate(["/login"]);
+  }
 }

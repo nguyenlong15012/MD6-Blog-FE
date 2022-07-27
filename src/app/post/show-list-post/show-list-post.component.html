@@ -62,12 +62,12 @@
               </table>
             </div>
             <form class="d-flex flex-start w-100" [formGroup]="commentForm" (ngSubmit)="createCmt(post.idPost)">
-              <div style="float: right;width: 100%;padding-top: 15px" class="">
+              <div style="float: right;width: 100%;padding-top: 15px" class="row">
                 <textarea placeholder="Comment here.." class="form-control"
                           rows="4" formControlName="content"
-                          style="background: #fff; height: 50px; width: 704px;border-radius: 10px"></textarea>
+                          style="background: #fff; height: 50px; width: 704px;border-radius: 10px;padding-left: 15px;margin-left: 12px"></textarea>
                 <br>
-                <div class="float-end mt-2 pt-1">
+                <div class="float-end mt-2 pt-1" style="text-align: right">
                   <button style="border-color: white;margin-right: 5px;background-color: lightgrey;color: black"
                           class="get-started-btn">Gửi
                   </button>

@@ -34,11 +34,6 @@
               <button class="button button1"><i class="fas fa-share me-2"></i> Chia sẻ</button>
             </div>
           </div>
-
-
-<!--            <button class="button1 button"><i class="far fa-thumbs-up me-2"></i> Thích</button>-->
-<!--            <button class="button button1"><i class="far fa-comment-dots me-2"></i> Bình Luận ({{commentList.length}})</button>-->
-<!--            <button class="button button1"><i class="fas fa-share me-2"></i> Chia sẻ</button>-->
           <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
             <div>
               <table *ngFor="let cmt of commentList">
@@ -90,19 +85,18 @@
   class="bi bi-arrow-up-short"></i></a>
 <app-footer></app-footer>
 <style>.button {
-  width: 241px;
   border: none;
   color: black;
-  padding: 11px 40px;
+  /*padding: 11px 40px;*/
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  font-size: 20px;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   cursor: pointer;
   border-radius: 1px;
+  background-color: #f8f9fa;
 }
 
 .button1:hover {

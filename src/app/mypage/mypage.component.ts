@@ -5,7 +5,7 @@ import {TokenService} from "../service/token.service";
 import {PostService} from "../service/post.service";
 import {ChangeAvatar} from "../model/ChangeAvatar";
 import {AuthService} from "../service/auth.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {PageEvent} from "@angular/material/paginator";
 import {Post} from "../model/post";
 
@@ -34,26 +34,31 @@ export class MypageComponent implements OnInit {
   list1: Post[] = [];
   totalElements: number = 0;
   idDelete: any;
+
   constructor(private httpClient: HttpClient,
               private authService: AuthService,
               private router: Router,
               private userService: UserService,
               private tokenService: TokenService,
-              private postService: PostService) {
+              private postService: PostService,
+              private activatedRoute : ActivatedRoute) {
   }
+  id:any =this.tokenService.getId()
 
   ngOnInit(): void {
-    this.pagePost({page: 0, size: 10})
+    this.pagePost({page: 0, size: 3});
     this.getAllPostByUser(this.tokenService.getId());
     this.avatar = this.tokenService.getAvatar();
     this.name = this.tokenService.getName();
+    // this.pagePost(this.tokenService.getId());
   }
 
   getAllPostByUser(id: any) {
     this.userService.getAllPostByUser(id).subscribe(result => {
       this.list = result;
       this.name = this.tokenService.getName();
-      console.log(result);
+      console.log('list -----> ',result);
+      console.log('this.id ---> ', this.id)
     }, error => {
       console.log(error)
     });
@@ -96,25 +101,19 @@ export class MypageComponent implements OnInit {
 
 
   //Phân trang
-  pagePost(nextPage: any){
-    this.postService.pagePost(nextPage).subscribe(data => {
+  pagePost(nextPage: {page: number, size: number}){
+    this.postService.pagePostUser(nextPage, this.id).subscribe((data: any) => {
       console.log('data ====> ', data);
-      // @ts-ignore
-      this.list1 = data['content']
-      // @ts-ignore
-      console.log('data[content]', data['content']);
-      // @ts-ignore
-      this.totalElements = data['totalElements'];
+      this.list1 = data.content;
+      this.totalElements = data.totalElements;
     })
   }
   nextPage(event: PageEvent) {
     console.log('event ====> ', event);
-    const nextPage = {};
-    // @ts-ignore
-    nextPage['page'] = event.pageIndex.toString();
-    // @ts-ignore
-    nextPage['size'] = event.pageSize.toString();
-    // @ts-ignore
+    const nextPage = {
+      page: event.pageIndex,
+      size: event.pageSize,
+    };
     console.log('request[size]', nextPage['size']);
     this.pagePost(nextPage);
   }

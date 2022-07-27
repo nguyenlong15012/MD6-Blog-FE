@@ -15,15 +15,13 @@ import {Router} from "@angular/router";
 })
 export class CreatePostComponent implements OnInit {
 
-  congkhai = 'Mọi người';
-
   //@ts-ignore
   users:User={};
   obj:any;
   form = new FormGroup({
     title: new FormControl(''),
     createAt: new FormControl(''),
-    status: new FormControl(''),
+    status: new FormControl('1'),
     description: new FormControl(''),
     tag: new FormControl(''),
     content: new FormControl(''),

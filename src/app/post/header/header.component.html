@@ -2,15 +2,15 @@
 <header id="header" class="fixed-top">
   <div class="container d-flex align-items-center">
 
-    <h1 class="logo me-auto"><a routerLink="">BLOG K</a></h1>
+    <h1 class="logo me-auto"><a style="text-decoration: none" routerLink="">BLOG K</a></h1>
     <nav id="navbar" class="navbar order-last order-lg-0">
       <ul>
-        <li><a class="active" routerLink="">Trang chủ</a></li>
-        <li><a class="active" *ngIf="checkLogin" routerLink="/create">Tạo blog</a></li>
-        <li class="dropdown" *ngIf="!checkLogin"><a><span>Đăng nhập</span> <i class="bi bi-chevron-down"></i></a>
+        <li><a class="active" style="text-decoration: none" routerLink="">Trang chủ</a></li>
+        <li><a class="active" style="text-decoration: none" *ngIf="checkLogin" routerLink="/create">Tạo blog</a></li>
+        <li class="dropdown" style="text-decoration: none" *ngIf="!checkLogin"><a><span>Đăng nhập</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
-            <li><a *ngIf="!checkLogin" routerLink="/login">Đăng Nhập</a></li>
-            <li><a *ngIf="!checkLogin" routerLink="/register">Đăng Ký</a></li>
+            <li><a style="text-decoration: none" *ngIf="!checkLogin" routerLink="/login">Đăng Nhập</a></li>
+            <li><a style="text-decoration: none" *ngIf="!checkLogin" routerLink="/register">Đăng Ký</a></li>
           </ul>
         </li>
 
@@ -31,6 +31,6 @@
       <div class="mat-button-ripple mat-ripple" matripple=""></div>
       <div class="mat-button-focus-overlay"></div>
     </a><span class="example-spacer"></span>
-    <a *ngIf="checkLogin" (click)="logOut()" class="get-started-btn">Đăng xuất</a>
+    <a *ngIf="checkLogin" (click)="logOut()" style="text-decoration: none" class="get-started-btn">Đăng xuất</a>
   </div>
 </header>

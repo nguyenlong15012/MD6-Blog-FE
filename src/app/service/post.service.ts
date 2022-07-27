@@ -10,6 +10,7 @@ import {environment} from "../../environments/environment.prod";
 })
 export class PostService {
   API_URL='http://localhost:8081/post'
+  API_USER_ID = environment.API_LOCAL
   private API_ADMIN = environment.API_LOCAL + 'admin';
   constructor(private httpClient:HttpClient) { }
   getAll(): Observable<any> {
@@ -48,6 +49,10 @@ export class PostService {
 
   pagePost(nextPage: any){
     const params = nextPage;
-    return this.httpClient.get(this.API_ADMIN, {params})
+    return this.httpClient.get(this.API_ADMIN, {params}) //{params} thuoc ve ham get cua Angular
+  }
+
+  pagePostUser(nextPage: {page: number, size: number}, id: number){
+    return this.httpClient.get(this.API_USER_ID + `users/view/${id}?page=${nextPage.page}&size=${nextPage.size}`)
   }
 }

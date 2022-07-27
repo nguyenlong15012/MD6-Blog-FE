@@ -24,6 +24,22 @@
           <button class="button1 button" (click)="likePost()"><i class="far fa-thumbs-up me-2"></i> Like {{totalLike}}</button>
           <button class="button button1"><i class="far fa-comment-dots me-2"></i> Comment ({{commentList.length}})</button>
           <button class="button button1"><i class="fas fa-share me-2"></i> Share</button>
+          <div class="row" style="padding-left: 12px;padding-right: 12px">
+            <div class="col-4" style="text-align: center;background-color: #f8f9fa;padding-top: 10px">
+              <button class="button1 button"><i class="far fa-thumbs-up me-2"></i> Thích</button>
+            </div>
+            <div class="col-4" style="text-align: center;background-color: #f8f9fa;padding-top: 10px">
+              <button class="button button1"><i class="far fa-comment-dots me-2"></i> Bình Luận ({{commentList.length}})</button>
+            </div>
+            <div class="col-4" style="text-align: center;background-color: #f8f9fa;padding-top: 10px">
+              <button class="button button1"><i class="fas fa-share me-2"></i> Chia sẻ</button>
+            </div>
+          </div>
+
+
+<!--            <button class="button1 button"><i class="far fa-thumbs-up me-2"></i> Thích</button>-->
+<!--            <button class="button button1"><i class="far fa-comment-dots me-2"></i> Bình Luận ({{commentList.length}})</button>-->
+<!--            <button class="button button1"><i class="fas fa-share me-2"></i> Chia sẻ</button>-->
           <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
             <div>
               <table *ngFor="let cmt of commentList">
@@ -54,10 +70,10 @@
                 <br>
                 <div class="float-end mt-2 pt-1">
                   <button style="border-color: white;margin-right: 5px;background-color: lightgrey;color: black"
-                          class="get-started-btn">Comment
+                          class="get-started-btn">Gửi
                   </button>
                   <button style="border-color: white;background-color: lightgrey;color: black;margin-left: 10px"
-                          class="get-started-btn" (click)="clearForm()">Cancel
+                          class="get-started-btn" (click)="clearForm()">Hủy
                   </button>
                 </div>
               </div>
@@ -75,19 +91,18 @@
   class="bi bi-arrow-up-short"></i></a>
 <app-footer></app-footer>
 <style>.button {
-  width: 241px;
   border: none;
   color: black;
-  padding: 11px 40px;
+  /*padding: 11px 40px;*/
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  font-size: 20px;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   cursor: pointer;
   border-radius: 1px;
+  background-color: #f8f9fa;
 }
 
 .button1:hover {

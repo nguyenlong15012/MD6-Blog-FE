@@ -43,7 +43,7 @@ export class MypageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pagePost({page: 0, size: 3})
+    this.pagePost({page: 0, size: 10})
     this.getAllPostByUser(this.tokenService.getId());
     this.avatar = this.tokenService.getAvatar();
     this.name = this.tokenService.getName();

@@ -32,7 +32,7 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   this.pagePost({page: 0, size: 3})
+   this.pagePost({page: 0, size: 10})
   }
   // ngOnInit(): void {
   //   this.postService.getAll().subscribe(result => {

@@ -5,6 +5,8 @@
 import { Component, OnInit } from '@angular/core';
 import {TokenService} from "../../service/token.service";
 import {Router} from "@angular/router";
+import {PostService} from "../../service/post.service";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-header',
@@ -14,21 +16,38 @@ import {Router} from "@angular/router";
 export class HeaderComponent implements OnInit {
   //@ts-ignore
   name: string;
+  // @ts-ignore
+  avatar: string;
   checkLogin = false;
-  constructor(private tokenService: TokenService,
-              ) { }
+  searchForm: any;
+
+  constructor(
+    private postService: PostService,
+    private tokenService: TokenService,
+    private router: Router,
+    private formBuilder: FormBuilder) {
+  }
 
   ngOnInit(): void {
-    if (this.tokenService.getToken()){
+    this.searchForm = this.formBuilder.group(
+      {
+        nameSearch: ['']
+      });
+    if (this.tokenService.getToken()) {
       this.checkLogin = true;
       this.name = this.tokenService.getName();
-      // this.avatar = this.tokenService.getAvatar();
-      // console.log('avatar   ====> ', this.avatar);
+      this.avatar = this.tokenService.getAvatar();
+      console.log('avatar   ====> ', this.avatar);
     }
   }
 
-  logOut(){
-    this.tokenService.logOut()
+  search() {
+    this.router.navigate(['/search'], {queryParams: {name: this.searchForm.value.nameSearch}});
+  }
+
+  logOut() {
+    this.tokenService.logOut();
+    this.router.navigate(['']);
   }
 }
 

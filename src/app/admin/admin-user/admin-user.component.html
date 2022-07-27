@@ -1,12 +1,31 @@
-<app-navbar></app-navbar><br><br><br><br>
-<form *ngFor = "let user of listUser">
-  <div >
-      <img  style="height: 100px;width: 100px" src="{{user.avatar}}">
-      <h4>{{user.name}}</h4>
-      <h5>{{user.username}}</h5>
-
-
-    <br></div>
-</form>
-
+<app-navbar></app-navbar><br><br><br><br><br><br><br><br>
+    <div style="text-align: center;padding: 15px;margin-top: 15px; background-color: #0dcaf0">
+      <h4 style="text-align: center;margin-top: 10px;">QUẢN LÝ NGƯỜI DÙNG</h4>
+    </div>
+<br>
+<br>
+<body>
+<div class="container">
+  <table class="table" >
+    <thead>
+    <tr>
+      <th><h2>Ảnh đại diện</h2></th>
+      <th><h2>Tên</h2></th>
+      <th><h2>Email</h2></th>
+      <th><h2>Chỉnh sửa</h2></th>
+<!--      <th><h2>Sửa</h2></th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="success" *ngFor = "let user of listUser" >
+      <td><img style="border-radius: 50px;height: 60px;width: 60px" src="{{user.avatar}}"></td>
+      <td><h2>{{user.name}}</h2></td>
+      <td><h2>{{user.email}}</h2></td>
+      <td colspan="2"><button style="margin-right: 5px"><h5>XÓA</h5></button><button><h5>SỬA</h5></button></td>
+<!--      <td></td>-->
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
 

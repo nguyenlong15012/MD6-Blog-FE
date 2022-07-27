@@ -19,6 +19,8 @@ export class HomeComponent implements OnInit {
   })
   //@ts-ignore
   name: string;
+  //@ts-ignore
+  avatar: string;
   checkLogin = false;
   constructor(private httpClient: HttpClient,
               private postService: PostService,
@@ -38,8 +40,8 @@ export class HomeComponent implements OnInit {
     if (this.tokenService.getToken()){
       this.checkLogin = true;
       this.name = this.tokenService.getName();
-      // this.avatar = this.tokenService.getAvatar();
-      // console.log('avatar   ====> ', this.avatar);
+      this.avatar = this.tokenService.getAvatar();
+      console.log('avatar   ====> ', this.avatar);
     }
   }
 
@@ -59,5 +61,9 @@ export class HomeComponent implements OnInit {
   }
   logOut(){
     this.tokenService.logOut()
+  }
+
+  onChangeAvatar($event: string) {
+    console.log('avatar ===> ', $event);
   }
 }

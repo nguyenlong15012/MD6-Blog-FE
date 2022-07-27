@@ -2,7 +2,7 @@
 <main id="main">
   <section id="events" class="events">
     <div style="text-align: center;padding: 15px;margin-top: 15px; background-color: #0dcaf0">
-      <h4 style="text-align: center;margin-bottom: 0px;">QUẢN LÝ BLOG</h4>
+      <h4 style="text-align: center;margin-top: 20px;">QUẢN LÝ BÀI VIẾT</h4>
     </div>
     <div class="container" data-aos="fade-up" style="margin-top: 15px">
 
@@ -13,8 +13,8 @@
               <img src="/assets/img/events-1.jpg" alt="...">
             </div>
             <a  class="card-body" >
-<!--              <img data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="showConfirm(item.idPost)" style="float: right; width: 20px;height: 20px" src="https://img.icons8.com/material-sharp/2x/filled-trash.png">-->
-<!--              <img routerLink="/update/{{item.idPost}}" style="margin-right: 5px;float: right; width: 20px;height: 20px" src="https://img.icons8.com/external-basicons-solid-edtgraphics/2x/external-Pen-office-stationery-basicons-solid-edtgraphics.png">-->
+              <!--              <img data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="showConfirm(item.idPost)" style="float: right; width: 20px;height: 20px" src="https://img.icons8.com/material-sharp/2x/filled-trash.png">-->
+                            <img routerLink="/admin-update/{{item.idPost}}" style="margin-right: 5px;float: right; width: 20px;height: 20px" src="https://img.icons8.com/external-basicons-solid-edtgraphics/2x/external-Pen-office-stationery-basicons-solid-edtgraphics.png">
               <p>{{item.user.name}}</p>
               <h5  class="card-title" routerLink="/list-post/{{item.idPost}}">{{item.title}}</h5>
               <p class="fst-italic text-center">{{item.createAt}}</p>
@@ -23,7 +23,18 @@
           </div>
         </div>
       </div>
+      <!--      <mat-paginator [length]="totalElements"-->
+      <!--                     [pageSizeOptions]="[10, 20, 30, 40, 50]"-->
+      <!--                     aria-label="Select page"-->
+      <!--                     (page)="nextPage($event)">-->
+      <!--      </mat-paginator>-->
+      <mat-paginator [length]="totalElements"
+                     [pageSizeOptions]="[3, 6, 9, 15]"
+                     aria-label="Select page"
+                     (page)="nextPage($event)">
+      </mat-paginator>
     </div>
+
   </section>
 
 </main>

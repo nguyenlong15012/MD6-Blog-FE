@@ -3,6 +3,9 @@ import {HttpClient} from "@angular/common/http";
 import {UserService} from "../service/user.service";
 import {TokenService} from "../service/token.service";
 import {PostService} from "../service/post.service";
+import {ChangeAvatar} from "../model/ChangeAvatar";
+import {AuthService} from "../service/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-mypage',
@@ -10,12 +13,26 @@ import {PostService} from "../service/post.service";
   styleUrls: ['./mypage.component.css']
 })
 export class MypageComponent implements OnInit {
+
+  form: any = {};
+  // @ts-ignore
+  changeAvagtar: ChangeAvatar;
+  error: any = {
+    message: 'no'
+  };
+  success: any = {
+    message: 'yes'
+  };
+  status = 'Please choose an image and click upload';
+
 //@ts-ignore
   name: string;
   avatar: any;
   list: any;
   idDelete: any;
   constructor(private httpClient: HttpClient,
+              private authService: AuthService,
+              private router: Router,
               private userService: UserService,
               private tokenService: TokenService,
               private postService: PostService) {
@@ -46,5 +63,29 @@ export class MypageComponent implements OnInit {
     this.idDelete = id
     // @ts-ignore
     $('#exampleModal').modal('show');
+  }
+  onSubmit() {
+    this.changeAvagtar = new ChangeAvatar(
+      this.form.avatar
+    );
+
+    this.authService.changeAvatar(this.changeAvagtar).subscribe(data => {
+      if (JSON.stringify(data) === JSON.stringify(this.error)){
+        // this.status = 'Please upload Avatar!';
+        alert('Hãy chọn ảnh!')
+      }
+      if (JSON.stringify(data) === JSON.stringify(this.success)){
+        // this.status = 'Change Avatar success!';
+        alert('Thay đổi thành công!');
+        this.tokenService.setAvatar(this.form.avatar);
+        window.location.reload();
+      }
+    }, error => {
+      alert('Thay đổi thất bại!');
+    });
+  }
+
+  onUploadAvatar($event: any) {
+    this.form.avatar = $event;
   }
 }

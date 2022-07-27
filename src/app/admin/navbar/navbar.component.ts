@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TokenService} from "../../service/token.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +11,8 @@ export class NavbarComponent implements OnInit {
 //@ts-ignore
   name: string;
   checkLogin = false;
-  constructor(private tokenService: TokenService
+  constructor(private tokenService: TokenService,
+              private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -24,5 +26,6 @@ export class NavbarComponent implements OnInit {
 
   logOut(){
     this.tokenService.logOut();
+    this.router.navigate(["/login"]);
   }
 }

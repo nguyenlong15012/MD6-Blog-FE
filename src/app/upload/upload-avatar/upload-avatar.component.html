@@ -1,9 +1,21 @@
 <div>
-  <input type="file" (change)="onFileChanged($event)"><br>
-  <button *ngIf="checkUploadAvatar"></button>
-  <button style="width: 120px" mat-stroked-button color="accent" class=""
-          (click)="onUpload()">Upload Avatar</button>
-  <div *ngIf="downloadURL" style="margin-bottom: 10px; margin-top: 10px">
-    <img [src]="downloadURL" style="width: 300px; height: auto">
+  <div *ngIf="checkUploadAvatar" class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
   </div>
+  <div *ngIf="downloadURL" style="margin-bottom: 10px; margin-top: 10px">
+    <img [src]="downloadURL" style="width: 100px; height: 100px">
+  </div>
+  <br>
+  <input type="file" (change)="onFileChanged($event)"><br>
 </div>
+
+
+<!--<div>-->
+<!--  <input type="file" (change)="onFileChanged($event)"><br>-->
+<!--  <mat-spinner *ngIf="checkUploadAvatar"></mat-spinner>-->
+<!--  <button style="width: 120px" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-success"-->
+<!--          (click)="onUpload()">Upload Avatar</button>-->
+<!--  <div *ngIf="downloadURL" style="margin-bottom: 10px; margin-top: 10px">-->
+<!--    <img [src]="downloadURL" style="width: 300px; height: auto">-->
+<!--  </div>-->
+<!--</div>-->

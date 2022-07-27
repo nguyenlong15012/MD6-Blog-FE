@@ -1,1 +1,42 @@
-<p>admin-update works!</p>
+<app-navbar></app-navbar>
+<form [formGroup]="form" (submit)="update()">
+  <h4>Tiêu đề :</h4>
+  <input formControlName = "title" class="input1">
+  <input type="hidden" formControlName="createAt">
+  <input type="hidden" formControlName="user">
+  <h4>Mô Tả :</h4>
+  <input formControlName="description" class="input1">
+  <h4>Nhãn :</h4>
+  <input formControlName="tag" class="input1">
+  <div><br></div>
+  <h4> Đối tượng :
+    <select style="margin-left: 20px">
+      <option >Chỉ mình tôi</option>
+      <option >Mọi người</option>
+    </select>
+  </h4>
+
+  <h4> Nội Dung :</h4>
+  <editor formControlName="content"
+          apiKey="k9pc292uhtpgv34lb0sfldd12z1tp9sksyzskpoqejysd38a"
+
+          [init]="{
+    base_url: '/tinymce',
+    suffix: '.min',
+     height: 500,
+     menubar: false,
+     plugins: [
+       'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+       'searchreplace wordcount visualblocks visualchars code fullscreen',
+       'insertdatetime media nonbreaking save table contextmenu directionality',
+       'emoticons template paste textcolor colorpicker textpattern',
+       'lists link image paste help wordcount'
+
+     ],
+     toolbar: '|undo redo | formatselect | bold italic backcolor |lignleft aligncenter alignright alignjustify|ullist numlist outdent indent | removeformat |cut|paste|copy|image|ínsert/edit image| help'
+   }"
+  >
+  </editor>
+  <button class="button button1">Sửa</button>
+</form>
+<app-footer></app-footer>

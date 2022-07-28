@@ -22,6 +22,11 @@
     </tr>
     </tbody>
   </table>
+  <mat-paginator [length]="totalElements"
+                 [pageSizeOptions]="[10, 20, 30, 50]"
+                 aria-label="Select page"
+                 (page)="nextPage($event)">
+  </mat-paginator>
 </div>
 </body>
 

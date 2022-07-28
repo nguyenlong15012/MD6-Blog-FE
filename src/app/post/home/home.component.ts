@@ -34,7 +34,6 @@ export class HomeComponent implements OnInit {
     // // @ts-ignore
     // if (0 === this.tokenService.getRole()){
     //   this.checkAuth = true;
-    // }
     this.postService.findAllPublicStatus().subscribe(result => {
       console.log('role ----> ', this.tokenService.getRole());
         // @ts-ignore

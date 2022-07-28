@@ -6,6 +6,7 @@ import {TokenService} from "../../service/token.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {UserService} from "../../service/user.service";
 import { FormControl } from '@angular/forms';
+import {PageEvent} from "@angular/material/paginator";
 
 @Component({
   selector: 'app-admin-user',
@@ -28,6 +29,7 @@ export class AdminUserComponent implements OnInit {
   }); }
 
   ngOnInit(): void {
+    this.pageUser({page: 0, size: 10})
     this.userService.getAll().subscribe(result => {
     // @ts-ignore
     this.listUser = result;
@@ -52,5 +54,27 @@ export class AdminUserComponent implements OnInit {
         console.log(data)
     // })
     });
+  }
+  pageUser(nextPage: any){
+    this.userService.pageUser(nextPage).subscribe(data => {
+      console.log('data ====> ', data);
+      // @ts-ignore
+      this.listUser = data['content']
+      // @ts-ignore
+      console.log('data[content]', data['content']);
+      // @ts-ignore
+      this.totalElements = data['totalElements'];
+    })
+  }
+  nextPage(event: PageEvent) {
+    console.log('event ====> ', event);
+    const nextPage = {};
+    // @ts-ignore
+    nextPage['page'] = event.pageIndex.toString();
+    // @ts-ignore
+    nextPage['size'] = event.pageSize.toString();
+    // @ts-ignore
+    console.log('request[size]', nextPage['size']);
+    this.pageUser(nextPage);
   }
 }

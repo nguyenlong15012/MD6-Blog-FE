@@ -21,4 +21,8 @@ export class UserService {
   getById(id: any): Observable<any> {
     return this.httpClient.get(this.API_URL + `/${id}`);
   }
+  pageUser(nextPage: any){
+    const params = nextPage;
+    return this.httpClient.get(this.API_URL, {params}) //{params} thuoc ve ham get cua Angular
+  }
 }

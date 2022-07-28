@@ -8,6 +8,8 @@ import {TokenService} from "../service/token.service";
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
+  admin: any = "ADMIN";
+  user: any = "USER";
   constructor(private authService: AuthService,
               private tokenService: TokenService,
               private router: Router
@@ -21,7 +23,7 @@ export class AuthGuard implements CanActivate {
   }
 
   checkUser() {
-    if (this.tokenService.getRole()[0] == "USER" || "ADMIN") {
+    if (this.tokenService.getRole()[0] == this.user || this.tokenService.getRole()[0] == this.admin) {
       return true;
     } else {
       this.router.navigate([''])

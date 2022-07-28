@@ -18,20 +18,20 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent, data: {title: "Login"}},
   {path: 'register', component: RegisterComponent, data: {title: "Register"}},
   {path: "", component: HomeComponent},
-  {path: "create", component: CreatePostComponent},
-  {path: "list-post/:id", component: ShowListPostComponent},
+  {path: "create", component: CreatePostComponent, canActivate:[AuthGuard]},
+  {path: "list-post/:id", component: ShowListPostComponent, canActivate:[AuthGuard]},
   {path: "my-page", component: MypageComponent , canActivate:[AuthGuard]},
-  {path: "friend-page/:id", component: FriendPageComponent},
-  {path: "update/:id", component: UpdateComponent},
-  {path: "admin-update/:id", component: AdminUpdateComponent},
-  {path: "admin-user", component: AdminUserComponent},
-  {path: "admin-detail/:id", component: AdminDetailComponent},
+  {path: "friend-page/:id", component: FriendPageComponent, canActivate:[AuthGuard]},
+  {path: "update/:id", component: UpdateComponent, canActivate:[AuthGuard]},
+  {path: "admin-update/:id", component: AdminUpdateComponent, canActivate:[AuthGuard]},
+  {path: "admin-user", component: AdminUserComponent, canActivate:[AuthGuard]},
+  {path: "admin-detail/:id", component: AdminDetailComponent, canActivate:[AuthGuard]},
   {path: 'admin', component: AdminPostComponent, data: {title: 'Dashboard'}},
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

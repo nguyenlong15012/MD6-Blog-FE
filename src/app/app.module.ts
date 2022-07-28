@@ -13,7 +13,6 @@ import { ShowListPostComponent } from './post/show-list-post/show-list-post.comp
 import { HomeComponent } from './post/home/home.component';
 import { HeaderComponent } from './post/header/header.component';
 import { FooterComponent } from './post/footer/footer.component';
-import {MypageComponent} from "./mypage/mypage.component";
 import {FriendPageComponent} from "./friend-page/friend-page.component";
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { UpdateComponent } from './post/update/update.component';
@@ -40,6 +39,7 @@ import {Ng2SearchPipeModule} from "ng2-search-filter";
 import {httpInterceptorProviders} from "./security/auth.interceptor";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {AdminPostComponent} from "./admin/admin-post/admin-post.component";
+import {MypageComponent} from "./mypage/mypage.component";
 @NgModule({
   declarations: [
     AppComponent,

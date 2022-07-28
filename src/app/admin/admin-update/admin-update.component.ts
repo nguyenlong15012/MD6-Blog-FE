@@ -17,7 +17,7 @@ export class AdminUpdateComponent implements OnInit {
   form = new FormGroup({
     title: new FormControl(''),
     createAt: new FormControl(''),
-    status: new FormControl(''),
+    status: new FormControl('1ơ; d`'),
     description: new FormControl(''),
     tag: new FormControl(''),
     content: new FormControl(''),

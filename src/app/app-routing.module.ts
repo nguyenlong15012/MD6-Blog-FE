@@ -12,6 +12,7 @@ import {AdminUserComponent} from "./admin/admin-user/admin-user.component";
 import {AdminPostComponent} from "./admin/admin-post/admin-post.component";
 import {AdminUpdateComponent} from "./admin/admin-update/admin-update.component";
 import {AdminDetailComponent} from "./admin/admin-detail/admin-detail.component";
+import {AuthGuard} from "./security/auth.guard";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent, data: {title: "Login"}},
@@ -19,7 +20,7 @@ const routes: Routes = [
   {path: "", component: HomeComponent},
   {path: "create", component: CreatePostComponent},
   {path: "list-post/:id", component: ShowListPostComponent},
-  {path: "my-page", component: MypageComponent},
+  {path: "my-page", component: MypageComponent , canActivate:[AuthGuard]},
   {path: "friend-page/:id", component: FriendPageComponent},
   {path: "update/:id", component: UpdateComponent},
   {path: "admin-update/:id", component: AdminUpdateComponent},

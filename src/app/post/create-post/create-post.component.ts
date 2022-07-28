@@ -36,6 +36,7 @@ export class CreatePostComponent implements OnInit {
               private router: Router,
              ) { }
   ngOnInit(): void {
+    window.scroll(0,0);
     this.userService.getAll().subscribe((data)=> {
       console.log(data)
       this.users = data;

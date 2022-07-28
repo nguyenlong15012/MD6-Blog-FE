@@ -42,6 +42,7 @@ export class ShowListPostComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.scroll(0,0)
     this.idUser = this.tokenService.getId();
     if (this.tokenService.getToken()){
       this.checkLogin = true;
@@ -142,4 +143,16 @@ export class ShowListPostComponent implements OnInit {
       this.getComment(this.idPost);
     });
   }
+
+  // updateCmt(idComment: any){
+  //   this.obj={
+  //     content : this.commentForm.value.content
+  //   };
+  //   this.commentService.update(this.obj,idComment).subscribe(data=>{
+  //     this.router.navigate([''])
+  //     // alert('Cập nhật thành công');
+  //   }, e => {
+  //     console.log(e);
+  //   })
+  // }
 }

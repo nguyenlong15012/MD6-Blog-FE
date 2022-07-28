@@ -34,6 +34,7 @@ export class UpdateComponent implements OnInit {
               private activatedRoute : ActivatedRoute) { }
 
   ngOnInit(): void {
+    window.scroll(0,0);
     this.userService.getAll().subscribe((data)=> {
       this.users = data
     })

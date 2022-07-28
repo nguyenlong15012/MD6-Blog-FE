@@ -29,6 +29,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.scroll(0,0)
     this.searchForm = this.formBuilder.group(
       {
         nameSearch: ['']

@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.scroll(0,0)
     this.postService.findAllPublicStatus().subscribe(result => {
         // @ts-ignore
       this.list = result;

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Post} from "../model/post";
 import {Observable} from "rxjs";
 import {Comment} from "../model/Comment";
 
@@ -17,6 +16,9 @@ export class CommentService {
 
   delete(idComment: number) {
     return this.httpClient.delete(this.API_URL + `/${idComment}`)
+  }
 
+  update(comment: any, id: any): Observable<Comment> {
+    return this.httpClient.put(this.API_URL + `/${id}`, comment);
   }
 }

@@ -43,7 +43,7 @@
                     style="width: 40px;height: 40px"
                     src="{{cmt.user.avatar}}"></td>
                   <td style="font-style: italic;font-weight: bold;width: 562px; padding-top: 15px"
-                      (click)="getTimeLine(cmt.user.id)">{{cmt.user.username}} <p style="font-style: italic;font-size: 13px;color: #0b5ed7;margin-bottom: 0px">{{ cmt.time | date:'MMM-d-y, H:mm:ss' }}</p></td>
+                      (click)="getTimeLine(cmt.user.id)">{{cmt.user.username}} <p style="font-style: italic;font-size: 13px;color: #0b5ed7;margin-bottom: 0px">{{ cmt.time | date:'d-M-y, H:mm' }}</p></td>
                   <td></td>
                   <td></td>
                 </tr>
@@ -54,6 +54,16 @@
                            style="float: right; width: 15px;height: 15px" (click)="showConfirm(cmt.idComment)"
                            src="https://img.icons8.com/material-sharp/2x/filled-trash.png"></td>
                 </tr>
+<!--                <tr>-->
+<!--                  <td></td>-->
+<!--                  <td>-->
+<!--                    <form [formGroup]="commentForm" (ngSubmit)="">-->
+<!--                      <input type="text" formControlName="content">-->
+<!--                      <button>Sửa</button>-->
+<!--                    </form>-->
+<!--                  </td>-->
+<!--                </tr>-->
+
               </table>
             </div>
             <form class="d-flex flex-start w-100" [formGroup]="commentForm" (ngSubmit)="createCmt(post.idPost)">

@@ -48,6 +48,8 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.get('role');
   }
   ngOnInit(): void{
+    window.scroll(0,0);
+
   }
 
   // onSubmit() {

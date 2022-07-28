@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
       return this.loginForm.get('username');
   }
   ngOnInit(): void{
+    window.scroll(0,0);
     this.returnUrl = '';
     this.adminUrl = '/admin';
   }

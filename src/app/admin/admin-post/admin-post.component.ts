@@ -40,7 +40,7 @@ export class AdminPostComponent implements OnInit {
     }, error => {
       console.log(error)
     });
-   this.pagePost({page: 0, size: 10})
+   this.pagePost({page: 0, size: 5})
     if (this.tokenService.getToken()){
       this.checkLogin = true;
       this.name = this.tokenService.getName();

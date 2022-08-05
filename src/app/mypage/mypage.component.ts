@@ -82,6 +82,7 @@ export class MypageComponent implements OnInit {
   deletePost(id: any) {
     this.postService.delete(id).subscribe(data =>{
       this.getAllPostByUser(this.tokenService.getId());
+      window.location.reload();
     })
   }
   showConfirm(id: any){
@@ -101,7 +102,7 @@ export class MypageComponent implements OnInit {
       }
       if (JSON.stringify(data) === JSON.stringify(this.success)){
         // this.status = 'Change Avatar success!';
-        alert('Thay đổi thành công!');
+        // alert('Thay đổi thành công!');
         this.tokenService.setAvatar(this.form.avatar);
         window.location.reload();
       }

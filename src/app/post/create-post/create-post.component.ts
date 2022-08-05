@@ -52,10 +52,10 @@ export class CreatePostComponent implements OnInit {
       }
     }
     this.postService.save(this.obj).subscribe(()=>{
-      alert('Thành công');
+      // alert('Thành công');
       this.router.navigate(["/"])
     }, error => {
-      alert('Lỗi');
+      // alert('Lỗi');
     })
   }
   // showConfirm(id: any){

@@ -21,7 +21,7 @@ export class AuthGuard implements CanActivate {
   }
 
   checkUser() {
-    if (this.tokenService.getRole()[0] == "USER" || "ADMIN") {
+    if (this.tokenService.getRole()[0] == "USER" || this.tokenService.getRole()[0] == "ADMIN") {
       return true;
     } else {
       this.router.navigate([''])
